@@ -33,7 +33,9 @@ public class Framework {
     JLabel movieSPTitle, movieSPTitle2;
     JPanel movieSelectionPanel;
     JButton movieSPBtn, movieSPBackBtn;
-    JComboBox movieSPComboBox;
+  JComboBox<String> movieSPComboBox;
+
+
 
     String name;
 
@@ -41,14 +43,14 @@ public class Framework {
     JMenu userMenu, adminMenu;
     JMenuItem loginM, walletM, logOutM, settingsM, myTicketsM, searchTM, homeM, supportM, adminsSubMenu;
     //items for admin
-    JMenuItem editMovM, editUserM, editTicketsM, editAdminsM;
+    JMenuItem editMovM, editUserM, editTicketsM, editAdminsM,adminDashBoard;
 
     //  seating panel components declaration
     JLabel seatSPTitle, seatARowLabel, seatBRowLabel, seatCRowLabel, seatFirstColLabel, seatSecondColLabel, seatThirdColLabel, seatSPTitle2, seatSPTitle3, seatSPTitle4, seatSPTitle5, seatSPTitle6, seatSPTitle7, seatSPDateLabel, seatSPTimeLabel, seatSPSeatsLabel, seatSPShowSelectedSeatsLabel, seatSPTitle1, seatSPMovieNameLabel;
     JPanel seatSelectionPanel;
     JButton seat1A, seat2A, seat3A, seat1B, seat2B, seat3B, seat1C, seat2C, seat3C, seatSPBackBtn;
 
-    JComboBox seatSPGetDateBox;
+    JComboBox<String> seatSPGetDateBox;
     JComboBox<String> seatSPGetTimeBox;
 
     JTextField seatSPUserTotal;
@@ -60,21 +62,21 @@ public class Framework {
     private String tickets;
     private String date;
     private String time;
-    private String seat; // for confirm dialoge
+    private String seat; // for confirm dialog
     int sum, price;
 
     // register and login components declaration
 
     JPanel AutFormPanel;
-    JLabel autFPTitle, autFPEmailLabel, autFPPasswordLabel, autFPConfPasswordLabel, autFPFirstNameLabel, autFPPromt;
+    JLabel autFPTitle, autFPEmailLabel, autFPPasswordLabel, autFPConfPasswordLabel, autFPFirstNameLabel, autFPPrompt;
 
     JTextField autFPEmailTF, autFPFirstNameTF;
     JPasswordField autFPPasswordPassF, autFPConfPasswordTF;
 
     JButton autFPSubmitBtn, autFPShowRegisterBtn, autFPBackBtn, autFPShowLoginBtn, autFPRegisterSubmitBtn;
 
-    private boolean logchk;
-    private String nametemp;
+    private boolean logChk;
+    private String nameTemp;
 
     private int getUserId;
     private String getUserPass;
@@ -83,38 +85,38 @@ public class Framework {
     // payments components declaration
 
     JPanel payPanel;
-    JTextArea payPReceptTA;
+    JTextArea payPReceiptTA;
 
-    JLabel paytitle, payPUserPromt, payPTitle, payPCardTypeLabel, payPAccTitleLabel, payPCardNumLabel, payPCvcLabel, payPAvailableBalLabel, seatSPPromt;
+    JLabel payTitle, payPUserPrompt, payPTitle, payPCardTypeLabel, payPAccTitleLabel, payPCardNumLabel, payPCvcLabel, payPAvailableBalLabel, seatSPPrompt;
 
-    JButton payPCreditCardMethodBtn, payPWalletMethodBtn, payPBackBtn, payPCardPayBtn, payPWalletPayBtn, payPDepostBtn;
+    JButton payPCreditCardMethodBtn, payPWalletMethodBtn, payPBackBtn, payPCardPayBtn, payPWalletPayBtn, payPDepositBtn;
 
     private int chkPibTransMethod = 0;
 
 
-    // created this to check weather a user is going to paymentt screen or not
+    // created this to check weather a user is going to payment screen or not
 
-    private boolean paychk;
+    private boolean payChk;
     // to make sure user doesn't get redirected to payment page if not selected any seat
-    private boolean nullchk;
+    private boolean nullChk;
 
     // to we are at payment screen we will need to log in
-    private boolean paySrclogout;
+    private boolean paySrcLogout;
 
-    private boolean getBackToPayScreen;
+
 
     JTextField payPAccTitleTF, payPCvcTf, payPCardNumTf, payPGetAvailableBal;
-    JComboBox payPCardTypeComboBox;
+    JComboBox<String> payPCardTypeComboBox;
 
     int bal;
-    private boolean payStatus;
+
 
     // admin Login Form
 
     JPanel adminsPanel;
     JLabel adminsPEmailLabel, adminsPPasswordLabel, adminsPPrompt, adminsPTitle;
     JTextField adminsPEmailTF;
-    JPasswordField adminsPPasswordPassFeild;
+    JPasswordField adminsPPasswordPassField;
     JButton adminsPSubmitBtn, adminsPBackBtn;
     private boolean isAdminOnDuty = false;
     //admin landing Page components
@@ -123,12 +125,12 @@ public class Framework {
     JButton adminHPMoviesBtn, adminHPTicketsBtn, adminHPUsersBtn, adminHPAdminsBtn, adminHPBackBtn;
 
 
-//recept components
+//receipt components
 
-    JPanel PurchaseReceptPanel;
-    JLabel purReceptTitle;
-    JTextArea purReceptTextArea;
-    JButton purReceptBackBtn;
+    JPanel PurchaseReceiptPanel;
+    JLabel purReceiptTitle;
+    JTextArea purReceiptTextArea;
+    JButton purReceiptBackBtn;
     private String recEmailVar;
 
     private String getDate;
@@ -192,25 +194,23 @@ public class Framework {
     JPanel adminsAdminsEditorPanel;
     //pib transaction approval
     JPanel transWindowPanel;
-    private final JPasswordField transWPasswordPassFeild;
-    private final JLabel transWindowTitle;
+    private final JPasswordField transWPasswordPassField;
     private final JLabel transWPasswordPFLabel;
     JButton transWPayBtn, transWCancelBtn;
-    private int getpibBal;
+    private int getPibBal;
     private String getCardTitle;
     private int getCardNum;
     private int getCardCvc;
-    private String getCardtype;
-    private final boolean isTransOpen = false;
+    private String getCardType;
 
-    //setting panal components
+    //setting panel components
     JPanel userSettingsPanel;
-    JLabel userSettingsTitle, userSYourNameLabel, userSyourEmailLabel, userSYourPasswordStatusLabel, userSPassStatus, userSUpdateWhatLabel, userSNewPassLabel, userSPromt;
+    JLabel userSettingsTitle, userSYourNameLabel, userSYourEmailLabel, userSYourPasswordStatusLabel, userSPassStatus, userSUpdateWhatLabel, userSNewPassLabel, userSPrompt;
     JButton userSApplyChangeBtn, userSYourPasswordChangeBtn, userSYourEmailChangeBtn, userSYourNameChangeBtn, userSBackBtn;
     JTextField userSUpdateThisTF, userSNewPasswordTF;
-    private int chkUpdateBtn = 0; // to check which update buttun is pressed , 1 for name, 2 for email 3 for pass , 0 for notihng
+    private int chkUpdateBtn = 0; // to check which update button is pressed , 1 for name, 2 for email 3 for pass , 0 for noting
 
-    //User wallet components declearation
+    //User wallet components declaration
 
     JButton userWDepositFundsBtn;
     JLabel userWalletTitle, userWShowAvailableBal;
@@ -222,10 +222,16 @@ public class Framework {
     JLabel transWShowBalanceLabel;
 
     //user wallet dashboard components
-    JButton userWDepoApproveBtn, userWBackBtn;
+    JButton userWDepositApproveBtn, userWBackBtn;
     JTextField userWAmtToAddTF, userWAccountTitleTF;
     JLabel userWAmtToAddLabel, userWAccountTitleLabel;
     JPanel userWalletPanel;
+
+    //user my ticket
+    JPanel userTicketsListPanel;
+    JButton userTLBackBtn;
+    JTable userTLTable;
+    DefaultTableModel userTlTableModel = new DefaultTableModel();
 
 
 
@@ -233,12 +239,12 @@ public class Framework {
 
         price = 300;
         seat = "";
-        logchk = false;
+        logChk = false;
 
-        User getUserFuctions = new User();
+        User getUserFunctions = new User();
         Frameworkfunc getFWFunctions = new Frameworkfunc();
 
-        //Declearing fonts
+        //Declaring fonts
 
         //nexa bold size 40 for titles
 
@@ -247,7 +253,7 @@ public class Framework {
         Font nexaB20 = new Font("Nexa Bold", BOLD, 20);
         // nexa light 20
         Font nexaL20 = new Font("Nexa Light", Font.PLAIN, 20);
-        //nexabold 15
+        //nexa bold 15
         Font nexaB15 = new Font("Nexa Bold", BOLD, 15);
         //nexa bold 25
         Font nexaB25 = new Font("Nexa Bold", BOLD, 25);
@@ -290,14 +296,16 @@ public class Framework {
 
 
         adminMenu = new JMenu("Admin");
+        adminDashBoard = new JMenuItem("Dashboard");
         editMovM = new JMenuItem("Edit Movie");
         editUserM = new JMenuItem("Edit Users");
         editTicketsM = new JMenuItem("Edit Tickets");
         editAdminsM = new JMenuItem("Edit Admins");
 
-
+        adminMenu.add(adminDashBoard);
         adminMenu.add(editMovM);
         adminMenu.add(editUserM);
+
         adminMenu.add(editTicketsM);
         adminMenu.add(editAdminsM);
 
@@ -374,6 +382,7 @@ public class Framework {
         getFWFunctions.colourJMenu(homeM);
         getFWFunctions.colourJMenu(editMovM);
         getFWFunctions.colourJMenu(editUserM);
+        getFWFunctions.colourJMenu(adminDashBoard);
         getFWFunctions.colourJMenu(editTicketsM);
         getFWFunctions.colourJMenu(editAdminsM);
 
@@ -560,9 +569,9 @@ public class Framework {
         seatConfirmBtn = new JButton("Confirm");
         seatConfirmBtn.setBounds(370, 390, 150, 20);
 
-        seatSPPromt = new JLabel("300/Rs per Ticket");
-        seatSPPromt.setFont(nexaL15);
-        seatSPPromt.setBounds(10, 390, 200, 50);
+        seatSPPrompt = new JLabel("300/Rs per Ticket");
+        seatSPPrompt.setFont(nexaL15);
+        seatSPPrompt.setBounds(10, 390, 200, 50);
 
 
         // colouring
@@ -580,7 +589,7 @@ public class Framework {
         seat2C.setBackground(Color.green);
         seat3C.setBackground(Color.green);
 
-        seatSPPromt.setForeground(Color.yellow);
+        seatSPPrompt.setForeground(Color.yellow);
         seatSPTitle.setForeground(Color.white);
         seatARowLabel.setForeground(Color.white);
         seatBRowLabel.setForeground(Color.white);
@@ -607,7 +616,7 @@ public class Framework {
 
         seatSelectionPanel.add(seatSPTitle);
         seatSelectionPanel.add(seatSPBackBtn);
-        seatSelectionPanel.add(seatSPPromt);
+        seatSelectionPanel.add(seatSPPrompt);
 
         seatSelectionPanel.add(seat1A);
         seatSelectionPanel.add(seat2A);
@@ -695,8 +704,8 @@ public class Framework {
         autFPShowLoginBtn.setBounds(330, 200, 200, 30);
         autFPShowLoginBtn.setVisible(false);
 
-        autFPPromt = new JLabel();
-        autFPPromt.setBounds(50, 400, 300, 30);
+        autFPPrompt = new JLabel();
+        autFPPrompt.setBounds(50, 400, 300, 30);
 
 
         AutFormPanel.add(autFPTitle);
@@ -712,11 +721,11 @@ public class Framework {
         AutFormPanel.add(autFPFirstNameLabel);
         AutFormPanel.add(autFPFirstNameTF);
         AutFormPanel.add(autFPShowLoginBtn);
-        AutFormPanel.add(autFPPromt);
+        AutFormPanel.add(autFPPrompt);
         AutFormPanel.add(autFPRegisterSubmitBtn);
 
-        //stylyzing the components
-        autFPPromt.setForeground(Color.yellow);
+        //styling the components
+        autFPPrompt.setForeground(Color.yellow);
 
         autFPTitle.setForeground(Color.white);
         AutFormPanel.setBackground(dRed);
@@ -745,24 +754,24 @@ public class Framework {
 
         payPanel = new JPanel(null);
 
-        payPReceptTA = new JTextArea();
-        payPReceptTA.setBounds(50, 100, 200, 300);
-        payPReceptTA.setFont(new Font("Nexa Light", Font.PLAIN, 18));
+        payPReceiptTA = new JTextArea();
+        payPReceiptTA.setBounds(50, 100, 200, 300);
+        payPReceiptTA.setFont(new Font("Nexa Light", Font.PLAIN, 18));
 
 
-        paytitle = new JLabel("Payment");
-        paytitle.setBounds(240, 0, 200, 50);
-        paytitle.setFont(nexaB40);
+        payTitle = new JLabel("Payment");
+        payTitle.setBounds(240, 0, 200, 50);
+        payTitle.setFont(nexaB40);
 
-        payPUserPromt = new JLabel();
-        payPUserPromt.setBounds(280, 100, 350, 50); // thats the promt asking user how would he like to pay
-        payPUserPromt.setFont(nexaB20);
+        payPUserPrompt = new JLabel();
+        payPUserPrompt.setBounds(280, 100, 350, 50); // that's the prompt asking user how would he like to pay
+        payPUserPrompt.setFont(nexaB20);
 
         payPTitle = new JLabel("Choose Payment Methods");
         payPTitle.setBounds(280, 130, 350, 50);
         payPTitle.setFont(new Font("Nexa Bold", BOLD, 17));
 
-        payPCreditCardMethodBtn = new JButton("PIB"); //if user wants to pay with PIB(Bank system created by me also witch can be found in my github also, you can only use ur that account) credit card.
+        payPCreditCardMethodBtn = new JButton("PIB"); //if user wants to pay with PIB(Bank system created by me also witch can be found in my GitHub also, you can only use ur that account) credit card.
         payPCreditCardMethodBtn.setBounds(300, 180, 130, 30);
 
         payPWalletMethodBtn = new JButton("Wallet");
@@ -798,7 +807,7 @@ public class Framework {
         String[] cType = {"Visa", "Master"};
 
 
-        payPCardTypeComboBox = new JComboBox(cType);
+        payPCardTypeComboBox= new JComboBox<>(cType);
         payPCardTypeComboBox.setBounds(460, 270, 130, 30);
         payPCardTypeComboBox.setVisible(false);
 
@@ -821,15 +830,15 @@ public class Framework {
         payPAvailableBalLabel.setBounds(300, 170, 130, 30);
         payPAvailableBalLabel.setVisible(false);
 
-        payPDepostBtn = new JButton("Deposit");
-        payPDepostBtn.setBounds(460, 270, 130, 30);
-        payPDepostBtn.setVisible(false);
+        payPDepositBtn = new JButton("Deposit");
+        payPDepositBtn.setBounds(460, 270, 130, 30);
+        payPDepositBtn.setVisible(false);
 
 //adding components to the panel
 
-        payPanel.add(payPReceptTA);
-        payPanel.add(paytitle);
-        payPanel.add(payPUserPromt);
+        payPanel.add(payPReceiptTA);
+        payPanel.add(payTitle);
+        payPanel.add(payPUserPrompt);
         payPanel.add(payPTitle);
         payPanel.add(payPCreditCardMethodBtn);
         payPanel.add(payPWalletMethodBtn);
@@ -846,12 +855,12 @@ public class Framework {
         payPanel.add(payPGetAvailableBal);
         payPanel.add(payPWalletPayBtn);
         payPanel.add(payPAvailableBalLabel);
-        payPanel.add(payPDepostBtn);
+        payPanel.add(payPDepositBtn);
 
 //Styling the components
         payPanel.setBackground(dRed);
-        paytitle.setForeground(Color.white);
-        payPUserPromt.setForeground(Color.yellow);
+        payTitle.setForeground(Color.white);
+        payPUserPrompt.setForeground(Color.yellow);
         payPTitle.setForeground(Color.yellow);
         payPAvailableBalLabel.setForeground(Color.WHITE);
 
@@ -870,7 +879,7 @@ public class Framework {
         getFWFunctions.colourBtn(payPWalletPayBtn);
         payPGetAvailableBal.setBackground(Color.WHITE);
 
-        getFWFunctions.colourBtn(payPDepostBtn);
+        getFWFunctions.colourBtn(payPDepositBtn);
 
         //Ticket Search
 
@@ -896,7 +905,7 @@ public class Framework {
         ticketSBackBtn = new JButton("Back");
         ticketSBackBtn.setBounds(200, 380, 150, 40);
 
-        ticketSGetTicketBtn = new JButton("Serach");
+        ticketSGetTicketBtn = new JButton("Search");
         ticketSGetTicketBtn.setBounds(360, 380, 150, 40);
 
 
@@ -913,34 +922,34 @@ public class Framework {
         getFWFunctions.colourBtn(ticketSGetTicketBtn);
         getFWFunctions.colourBtn(ticketSBackBtn);
 
-        //Purchase Recept
+        //Purchase Receipt
 
 
-        PurchaseReceptPanel = new JPanel(null);
+        PurchaseReceiptPanel = new JPanel(null);
 
-        purReceptTitle = new JLabel("Your Ticket");
-        purReceptTitle.setBounds(230, 0, 400, 50);
-        purReceptTitle.setFont(nexaB40);
-
-
-        purReceptTextArea = new JTextArea();
-        purReceptTextArea.setBounds(210, 65, 310, 300);
-        purReceptTextArea.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-        purReceptTextArea.setEditable(false);
+        purReceiptTitle = new JLabel("Your Ticket");
+        purReceiptTitle.setBounds(230, 0, 400, 50);
+        purReceiptTitle.setFont(nexaB40);
 
 
-        purReceptBackBtn = new JButton("Continue");
-        purReceptBackBtn.setBounds(265, 380, 150, 40);
+        purReceiptTextArea = new JTextArea();
+        purReceiptTextArea.setBounds(210, 65, 310, 300);
+        purReceiptTextArea.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+        purReceiptTextArea.setEditable(false);
 
 
-        PurchaseReceptPanel.add(purReceptTitle);
-        PurchaseReceptPanel.add(purReceptTextArea);
-        PurchaseReceptPanel.add(purReceptBackBtn);
+        purReceiptBackBtn = new JButton("Continue");
+        purReceiptBackBtn.setBounds(265, 380, 150, 40);
 
-        PurchaseReceptPanel.setBackground(dRed);
-        purReceptTitle.setForeground(Color.white);
 
-        getFWFunctions.colourBtn(purReceptBackBtn);
+        PurchaseReceiptPanel.add(purReceiptTitle);
+        PurchaseReceiptPanel.add(purReceiptTextArea);
+        PurchaseReceiptPanel.add(purReceiptBackBtn);
+
+        PurchaseReceiptPanel.setBackground(dRed);
+        purReceiptTitle.setForeground(Color.white);
+
+        getFWFunctions.colourBtn(purReceiptBackBtn);
 
 
         // ADMINS PANELS
@@ -960,8 +969,8 @@ public class Framework {
         adminsPEmailLabel = new JLabel("Email:");
         adminsPEmailLabel.setBounds(120, 120, 200, 30);
 
-        adminsPPasswordPassFeild = new JPasswordField();
-        adminsPPasswordPassFeild.setBounds(330, 150, 200, 30);
+        adminsPPasswordPassField = new JPasswordField();
+        adminsPPasswordPassField.setBounds(330, 150, 200, 30);
 
         adminsPPasswordLabel = new JLabel("Password:");
         adminsPPasswordLabel.setBounds(330, 120, 200, 30);
@@ -979,7 +988,7 @@ public class Framework {
 
         adminsPanel.add(adminsPTitle);
         adminsPanel.add(adminsPEmailLabel);
-        adminsPanel.add(adminsPPasswordPassFeild);
+        adminsPanel.add(adminsPPasswordPassField);
         adminsPanel.add(adminsPPrompt);
         adminsPanel.add(adminsPPasswordLabel);
         adminsPanel.add(adminsPSubmitBtn);
@@ -987,7 +996,7 @@ public class Framework {
         adminsPanel.add(adminsPBackBtn);
 
 
-        //stylyzing the components
+        //styling the components
         adminsPPrompt.setForeground(Color.yellow);
 
 
@@ -1043,10 +1052,10 @@ public class Framework {
         movNameCol.setPreferredWidth(220);
         movDateCol.setPreferredWidth(100);
 
-        //row font and aligment has been changed to center here
+        //row font and alignment has been changed to center here
         movieEditorTable.setFont(new Font("New Times Roman", Font.PLAIN, 15));
         ((DefaultTableCellRenderer) movieEditorTable.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
-        //set font for table headersand then aligned it to the center
+        //set font for table headers and then aligned it to the center
 
         movieEditorTable.getTableHeader().setFont(nexaB20);
 
@@ -1056,7 +1065,7 @@ public class Framework {
         movieERenderer = (DefaultTableCellRenderer)
                 movieEditorTable.getTableHeader().getDefaultRenderer();
         movieERenderer.setHorizontalAlignment(JLabel.CENTER);
-// diallowing users to edit or move colums
+// disallowing users to edit or move columns
         movieEditorTable.getTableHeader().setReorderingAllowed(false);
 
 
@@ -1239,7 +1248,7 @@ public class Framework {
         movEditor3CComboBox.setBackground(Color.white);
 
 
-        //admin Panal Options Selector
+        //admin Panel Options Selector
 
 
         adminHomePagePanel = new JPanel();
@@ -1255,7 +1264,7 @@ public class Framework {
         adminHPTitle.setBounds(200, 0, 200, 50);
 
 
-        adminHPMoviesBtn = new JButton("Moives");
+        adminHPMoviesBtn = new JButton("Movies");
         adminHPMoviesBtn.setPreferredSize(new Dimension(300, 50));
 
         adminHPTicketsBtn = new JButton("Tickets");
@@ -1319,7 +1328,7 @@ public class Framework {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 
-        //initializing colums in an object to change the size of that column
+        //initializing columns in an object to change the size of that column
 
         TableColumn userEmailCol = adminsUserEditTable.getColumnModel().getColumn(1);
         TableColumn userPassCol = adminsUserEditTable.getColumnModel().getColumn(3);
@@ -1334,7 +1343,7 @@ public class Framework {
         userNameCol.setPreferredWidth(150);
         userBalCol.setPreferredWidth(150);
 
-        //row font and aligment has been changed to center here
+        //row font and alignment has been changed to center here
         adminsUserEditTable.setFont(new Font("New Times Roman", Font.PLAIN, 15));
         ((DefaultTableCellRenderer) adminsUserEditTable.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
         //set font for table headers and then aligned it to the center
@@ -1386,7 +1395,7 @@ public class Framework {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 
-        //initializing colums in an object to change the size of that column
+        //initializing columns in an object to change the size of that column
         TableColumn ticketsIdCol = adminsTicketsTable.getColumnModel().getColumn(0);
         TableColumn ticketsMovCol = adminsTicketsTable.getColumnModel().getColumn(1);
         TableColumn ticketsTimeCol = adminsTicketsTable.getColumnModel().getColumn(2);
@@ -1412,10 +1421,10 @@ public class Framework {
         ticketsSeatsCol.setPreferredWidth(220);
 
 
-        //row font and aligment has been changed to center here
+        //row font and alignment has been changed to center here
         adminsTicketsTable.setFont(new Font("New Times Roman", Font.PLAIN, 15));
         ((DefaultTableCellRenderer) adminsTicketsTable.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
-        //set font for table headersand then aligned it to the center
+        //set font for table headers and then aligned it to the center
 
         adminsTicketsTable.getTableHeader().setFont(nexaB20);
 
@@ -1431,21 +1440,21 @@ public class Framework {
         //Admins admins Editor
 
         adminsAdminsEditorPanel = new JPanel(new BorderLayout());
-        JTable adminsAETabel;
+        JTable adminsAETable;
 
 
         String[] adminsColumnNames = {"Id", "Name", "Email", "Password"};
 
 
-        adminsAETabel = new JTable();
+        adminsAETable = new JTable();
 
 
         adminsAETabModel.setColumnIdentifiers(adminsColumnNames);
 
-        adminsAETabel.setModel(adminsAETabModel);
-        adminsAETabel.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        adminsAETabel.setFillsViewportHeight(true);
-        JScrollPane scroll4 = new JScrollPane(adminsAETabel);
+        adminsAETable.setModel(adminsAETabModel);
+        adminsAETable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        adminsAETable.setFillsViewportHeight(true);
+        JScrollPane scroll4 = new JScrollPane(adminsAETable);
         scroll4.setHorizontalScrollBarPolicy(
 
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -1453,14 +1462,14 @@ public class Framework {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 
-        //initializing colums in an object to change the size of that column
-        TableColumn adminsIdCol = adminsAETabel.getColumnModel().getColumn(0);
-        TableColumn adminsNameCol = adminsAETabel.getColumnModel().getColumn(1);
-        TableColumn adminsEmailCol = adminsAETabel.getColumnModel().getColumn(2);
-        TableColumn adminsPassCol = adminsAETabel.getColumnModel().getColumn(3);
+        //initializing columns in an object to change the size of that column
+        TableColumn adminsIdCol = adminsAETable.getColumnModel().getColumn(0);
+        TableColumn adminsNameCol = adminsAETable.getColumnModel().getColumn(1);
+        TableColumn adminsEmailCol = adminsAETable.getColumnModel().getColumn(2);
+        TableColumn adminsPassCol = adminsAETable.getColumnModel().getColumn(3);
 
         //row size changed here
-        adminsAETabel.setRowHeight(40);
+        adminsAETable.setRowHeight(40);
 
         // used those objects to change the size of the column
         adminsEmailCol.setPreferredWidth(220);
@@ -1468,22 +1477,22 @@ public class Framework {
         adminsNameCol.setPreferredWidth(150);
         adminsPassCol.setPreferredWidth(150);
 
-        //row font and aligment has been changed to center here
-        adminsAETabel.setFont(new Font("New Times Roman", Font.PLAIN, 15));
-        ((DefaultTableCellRenderer) adminsAETabel.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
-        //set font for table headersand shen aligned it to the center
+        //row font and alignment has been changed to center here
+        adminsAETable.setFont(new Font("New Times Roman", Font.PLAIN, 15));
+        ((DefaultTableCellRenderer) adminsAETable.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
+        //set font for table headers and shen aligned it to the center
 
-        adminsAETabel.getTableHeader().setFont(nexaB20);
+        adminsAETable.getTableHeader().setFont(nexaB20);
 
         DefaultTableCellRenderer adminsTabRenderer;
 
 
         adminsTabRenderer = (DefaultTableCellRenderer)
-                adminsAETabel.getTableHeader().getDefaultRenderer();
+                adminsAETable.getTableHeader().getDefaultRenderer();
         adminsTabRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-        // diallowing users to edit or move colums
-        adminsAETabel.getTableHeader().setReorderingAllowed(false);
+        // disallowing users to edit or move columns
+        adminsAETable.getTableHeader().setReorderingAllowed(false);
 
 
         scroll4.setVisible(true);
@@ -1496,7 +1505,7 @@ public class Framework {
         transWindowFrame.setSize(700, 500);
 
         transWindowPanel = new JPanel(null);
-        transWindowTitle = new JLabel("Please confirm your transaction below");
+        JLabel transWindowTitle = new JLabel("Please confirm your transaction below");
         transWindowTitle.setFont(nexaB20);
         transWindowTitle.setBounds(200, 30, 400, 50);
         transWShowBalanceTF = new JTextField();
@@ -1508,8 +1517,8 @@ public class Framework {
         transWShowBalanceLabel.setFont(nexaB15);
         transWShowBalanceLabel.setVisible(false);
 
-        transWPasswordPassFeild = new JPasswordField();
-        transWPasswordPassFeild.setBounds(300, 100, 150, 30);
+        transWPasswordPassField = new JPasswordField();
+        transWPasswordPassField.setBounds(300, 100, 150, 30);
         transWPasswordPFLabel = new JLabel("PIB Password:");
         transWPasswordPFLabel.setBounds(150, 100, 200, 30);
         transWPasswordPFLabel.setFont(nexaB15);
@@ -1528,7 +1537,7 @@ public class Framework {
         getFWFunctions.colourBtn(transWLoginBtn);
 
         transWindowPanel.add(transWindowTitle);
-        transWindowPanel.add(transWPasswordPassFeild);
+        transWindowPanel.add(transWPasswordPassField);
         transWindowPanel.add(transWPasswordPFLabel);
         transWindowPanel.add(transWPayBtn);
         transWindowPanel.add(transWCancelBtn);
@@ -1549,14 +1558,14 @@ public class Framework {
         userSettingsTitle.setBounds(100, 0, 500, 50);
 
 
-        userSYourNameLabel = new JLabel("Your Name : Rushan jamil khan");
+        userSYourNameLabel = new JLabel("");
         userSYourNameLabel.setBounds(50, 60, 400, 50);
         userSYourNameChangeBtn = new JButton("Change");
         userSYourNameChangeBtn.setBounds(500, 70, 100, 30);
 
 
-        userSyourEmailLabel = new JLabel("Your Email : rushanjk@gmail.com");
-        userSyourEmailLabel.setBounds(50, 120, 400, 50);
+        userSYourEmailLabel = new JLabel("Your Email : rushanjk@gmail.com");
+        userSYourEmailLabel.setBounds(50, 120, 400, 50);
         userSYourEmailChangeBtn = new JButton("Change");
         userSYourEmailChangeBtn.setBounds(500, 130, 100, 30);
 
@@ -1599,18 +1608,18 @@ public class Framework {
 
         userSBackBtn = new JButton("<");
         userSBackBtn.setBounds(630, 380, 50, 50);
-        userSPromt = new JLabel("");
-        userSPromt.setBounds(10, 390, 400, 50);
+        userSPrompt = new JLabel("");
+        userSPrompt.setBounds(10, 390, 400, 50);
 
 
         //stylizing components
 
-        userSettingsPanel.add(userSPromt);
+        userSettingsPanel.add(userSPrompt);
         getFWFunctions.colourBtn(userSBackBtn);
         getFWFunctions.colourBtn(userSYourNameChangeBtn);
         userSYourNameChangeBtn.setFont(nexaB15);
-        userSPromt.setForeground(Color.yellow);
-        userSPromt.setFont(nexaL15);
+        userSPrompt.setForeground(Color.yellow);
+        userSPrompt.setFont(nexaL15);
         userSBackBtn.setFont(nexaB40);
         getFWFunctions.colourBtn(userSApplyChangeBtn);
         userSApplyChangeBtn.setFont(nexaB15);
@@ -1625,13 +1634,13 @@ public class Framework {
         userSYourEmailChangeBtn.setFont(nexaB15);
         userSettingsTitle.setFont(nexaB40);
         userSYourNameLabel.setFont(nexaB15);
-        userSyourEmailLabel.setFont(nexaB15);
+        userSYourEmailLabel.setFont(nexaB15);
         userSUpdateWhatLabel.setFont(nexaB15);
         userSYourPasswordStatusLabel.setForeground(Color.white);
         userSettingsPanel.setBackground(dRed);
         userSettingsTitle.setForeground(Color.white);
         userSYourNameLabel.setForeground(Color.white);
-        userSyourEmailLabel.setForeground(Color.white);
+        userSYourEmailLabel.setForeground(Color.white);
 
 //adding components to panel
 
@@ -1648,7 +1657,7 @@ public class Framework {
         userSettingsPanel.add(userSettingsTitle);
         userSettingsPanel.add(userSYourNameLabel);
         userSettingsPanel.add(userSYourEmailChangeBtn);
-        userSettingsPanel.add(userSyourEmailLabel);
+        userSettingsPanel.add(userSYourEmailLabel);
         //User Wallet screen
 
         userWalletPanel = new JPanel(null);
@@ -1660,7 +1669,7 @@ public class Framework {
         userWalletTitle.setBounds(200, 0, 350, 50);
 
         userWShowAvailableBal = new JLabel("Available account balance = " + bal);
-        userWShowAvailableBal.setBounds(50, 100, 350, 30);
+        userWShowAvailableBal.setBounds(50, 100, 500, 30);
         userWShowAvailableBal.setFont(nexaB25);
 
         userWDepositFundsBtn = new JButton("Deposit Funds");
@@ -1686,9 +1695,9 @@ public class Framework {
         userWAmtToAddTF.setBounds(300, 330, 130, 30);
         userWAmtToAddTF.setVisible(false);
 
-        userWDepoApproveBtn = new JButton("Go");
-        userWDepoApproveBtn.setBounds(180, 380, 130, 30);
-        userWDepoApproveBtn.setVisible(false);
+        userWDepositApproveBtn = new JButton("Go");
+        userWDepositApproveBtn.setBounds(180, 380, 130, 30);
+        userWDepositApproveBtn.setVisible(false);
 
         userWBackBtn = new JButton("<");
         getFWFunctions.colourBtn(userWBackBtn);
@@ -1697,8 +1706,8 @@ public class Framework {
 
         userWalletTitle.setForeground(Color.white);
         userWAccountTitleLabel.setForeground(Color.white);
-        getFWFunctions.colourBtn(userWDepoApproveBtn);
-        userWDepoApproveBtn.setFont(nexaB15);
+        getFWFunctions.colourBtn(userWDepositApproveBtn);
+        userWDepositApproveBtn.setFont(nexaB15);
         userWAmtToAddLabel.setForeground(Color.white);
         getFWFunctions.colourBtn(userWDepositFundsBtn);
         userWDepositFundsBtn.setFont(nexaB15);
@@ -1706,7 +1715,7 @@ public class Framework {
         userWalletPanel.setBackground(dRed);
 
 
-        userWalletPanel.add(userWDepoApproveBtn);
+        userWalletPanel.add(userWDepositApproveBtn);
         userWalletPanel.add(userWBackBtn);
         userWalletPanel.add(userWAccountTitleTF);
         userWalletPanel.add(userWAccountTitleLabel);
@@ -1715,6 +1724,81 @@ public class Framework {
         userWalletPanel.add(userWDepositFundsBtn);
         userWalletPanel.add(userWalletTitle);
         userWalletPanel.add(userWShowAvailableBal);
+
+
+
+
+        //users bought tickets
+
+
+        userTicketsListPanel = new JPanel(new BorderLayout());
+
+        userTLBackBtn = new JButton("Back");
+        userTLBackBtn.setFont(nexaB20);
+
+
+        String[] ticketColumnNames = {"Id", "Movie", "Time", "Date", "Seats", "Amount Paid", "Method", "Purchased on"};
+
+
+        userTLTable = new JTable();
+
+
+
+        userTlTableModel.setColumnIdentifiers(ticketColumnNames);
+
+        userTLTable.setModel(userTlTableModel);
+        userTLTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        userTLTable.setFillsViewportHeight(true);
+        JScrollPane userTLScroll = new JScrollPane(userTLTable);
+        userTLScroll.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        userTLScroll.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        userTLTable.setDefaultEditor(Object.class, null);
+
+        //initializing columns in an object to change the size of that column
+        TableColumn UserTIdCol = userTLTable.getColumnModel().getColumn(0);
+        TableColumn UserTMovNameCol = userTLTable.getColumnModel().getColumn(1);
+        TableColumn UserTMovTimeCol = userTLTable.getColumnModel().getColumn(2);
+        TableColumn UserTMovDateCol = userTLTable.getColumnModel().getColumn(3);
+        TableColumn UserTMovSeatsCol = userTLTable.getColumnModel().getColumn(4);
+        TableColumn UserTAmtCol = userTLTable.getColumnModel().getColumn(5);
+        TableColumn UserTMovMethodCol = userTLTable.getColumnModel().getColumn(6);
+        TableColumn UserTPurDateCol = userTLTable.getColumnModel().getColumn(7);
+//row size changed here
+        userTLTable.setRowHeight(40);
+
+        // used those objects to change the size of the column
+        UserTMovNameCol.setPreferredWidth(220);
+        UserTPurDateCol.setPreferredWidth(220);
+        UserTMovSeatsCol.setPreferredWidth(220);
+        UserTIdCol.setPreferredWidth(100);
+        UserTMovTimeCol.setPreferredWidth(100);
+        UserTMovDateCol.setPreferredWidth(100);
+        UserTMovMethodCol.setPreferredWidth(100);
+        UserTAmtCol.setPreferredWidth(100);
+
+        //row font and alignment has been changed to center here
+        userTLTable.setFont(new Font("New Times Roman", Font.PLAIN, 15));
+        ((DefaultTableCellRenderer) userTLTable.getDefaultRenderer(String.class)).setHorizontalAlignment(SwingConstants.CENTER);
+        //set font for table headers and then aligned it to the center
+
+        userTLTable.getTableHeader().setFont(nexaB20);
+
+        DefaultTableCellRenderer userTLRenderer;
+
+
+        userTLRenderer = (DefaultTableCellRenderer)
+                userTLTable.getTableHeader().getDefaultRenderer();
+        userTLRenderer.setHorizontalAlignment(JLabel.CENTER);
+// disallowing users to edit or move columns
+        userTLTable.getTableHeader().setReorderingAllowed(false);
+
+
+        userTLScroll.setVisible(true);
+        userTicketsListPanel.add(userTLScroll, BorderLayout.CENTER);
+        userTicketsListPanel.add(userTLBackBtn, BorderLayout.SOUTH);
+        getFWFunctions.colourBtn(userTLBackBtn);
 
 
 
@@ -1733,7 +1817,7 @@ public class Framework {
         jPanelContainer.add(AutFormPanel, "3");//authorization
         jPanelContainer.add(payPanel, "4");//payment
         jPanelContainer.add(adminsPanel, "admin");
-        jPanelContainer.add(PurchaseReceptPanel, "recept");
+        jPanelContainer.add(PurchaseReceiptPanel, "receipt");
         jPanelContainer.add(movieEditorPanel, "editMov");
         jPanelContainer.add(ticketSearchPanel, "serTic");
         jPanelContainer.add(adminHomePagePanel, "adminPan");
@@ -1742,6 +1826,7 @@ public class Framework {
         jPanelContainer.add(adminsAdminsEditorPanel, "adminsInfo");
         jPanelContainer.add(userSettingsPanel, "settings");
         jPanelContainer.add(userWalletPanel, "wallet");
+        jPanelContainer.add(userTicketsListPanel, "myTickets");
 
 
         //show this panel on startup
@@ -1751,7 +1836,7 @@ public class Framework {
         //home screen buttons actions
 
         landPageBtn.addActionListener(e -> {
-            movieSPComboBox.removeAllItems();  // removing all items added in it because itll just stack up movies each time the button is clicked
+            movieSPComboBox.removeAllItems();  // removing all items added in it because it'll just stack up movies each time the button is clicked
             c1.show(jPanelContainer, "1");
             // connecting to database
             try {
@@ -1760,7 +1845,7 @@ public class Framework {
                 String query = "select * from movies ";
                 ResultSet rs = st.executeQuery(query);
                 while (rs.next()) {
-                    //Getting movies in the combobox
+                    //Getting movies in the combo-box
                     movieSPComboBox.addItem(rs.getString("name"));
 
                 }
@@ -1771,7 +1856,7 @@ public class Framework {
 
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database");
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database");
 //
             }
 
@@ -1780,8 +1865,8 @@ public class Framework {
 
         landPageBtn1.addActionListener(e -> {
 
-            adminsPPasswordPassFeild.setText("");
-            if (!isAdminOnDuty) // checking if admin is loggin in or not
+            adminsPPasswordPassField.setText("");
+            if (!isAdminOnDuty) // checking if admin is login in or not
                 c1.show(jPanelContainer, "admin");
             else {
                 int a = JOptionPane.showConfirmDialog(jPanelContainer, "You Are already logged in As a moderator ,Click yes to be redirected to Admin panel  ");
@@ -1797,8 +1882,8 @@ public class Framework {
 
             seat = " ";
 
-            // getting the moive name and showing it on ticket screen
-            name = (String) movieSPComboBox.getItemAt(movieSPComboBox.getSelectedIndex());
+            // getting the move name and showing it on ticket screen
+            name = movieSPComboBox.getItemAt(movieSPComboBox.getSelectedIndex());
             // removing all items added in it because it'll just stack up data each time the button is clicked
             seatSPGetDateBox.removeAllItems();
             seatSPGetTimeBox.removeAllItems();
@@ -1834,7 +1919,7 @@ public class Framework {
                 seatSPMovieNameLabel.setText(name);
                 c1.show(jPanelContainer, "2");
 
-                //checking conditions if data coming from data base is true (1) means its book and changing it colour to red if false(0) then green
+                //checking conditions if data coming from database is true (1) means its book and changing it colour to red if false(0) then green
                 if (getSeats[0] == 1) {
                     seat1A.setBackground(Color.red);
                 } else seat1A.setBackground(Color.green);
@@ -1875,30 +1960,30 @@ public class Framework {
         seatConfirmBtn.addActionListener(e -> {
 
 
-            nullchk = false;
+            nullChk = false;
 
-            // seting the payment label here
-            payPUserPromt.setText("How would you like to pay " + sum + " Rs ?");
+            // setting the payment label here
+            payPUserPrompt.setText("How would you like to pay " + sum + " Rs ?");
 
-            // getting tickets in tickets variabel
+            // getting tickets in tickets variable
             tickets = seatSPShowSelectedSeatsLabel.getText();
             // getting date n time to a string variable
-            date = (String) seatSPGetDateBox.getItemAt(seatSPGetDateBox.getSelectedIndex());
+            date =  seatSPGetDateBox.getItemAt(seatSPGetDateBox.getSelectedIndex());
             time = seatSPGetTimeBox.getItemAt(seatSPGetTimeBox.getSelectedIndex());
 
-// checking if user has selected atleast one seat or not
+// checking if user has selected at least one seat or not
             if (sum != 0) {
                 int a = JOptionPane.showConfirmDialog(jPanelContainer, "Do you want to buy  " + name + " movie tickets \"" + tickets + "\" on " + date + " " + time + " for " + sum + "RS ?");
                 if (a == JOptionPane.YES_OPTION) {
 
-                    if (!logchk) {
+                    if (!logChk) {
                         // if we are not logged in we will be redirected to login page
 
                         c1.show(jPanelContainer, "3");
-                        paychk = false;
-                        //setting pay recept text
-                        payPReceptTA.setText("\n" +
-                                "          Recept \n" + "\n" +
+                        payChk = false;
+                        //setting pay receipt text
+                        payPReceiptTA.setText("\n" +
+                                "          Receipt \n" + "\n" +
                                 "Movie : " + name + "\n" +
                                 "Time : " + time + "\n" +
                                 "Date : " + date + "\n" +
@@ -1907,16 +1992,16 @@ public class Framework {
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(jPanelContainer, "Please Select one seat atleast", "Warning", JOptionPane.WARNING_MESSAGE);
-                nullchk = true;
+                JOptionPane.showMessageDialog(jPanelContainer, "Please Select one seat at least", "Warning", JOptionPane.WARNING_MESSAGE);
+                nullChk = true;
             }
 
-            if (logchk && !nullchk) {
-                //if user has logged in and any atleast one seat is selected then user will be redirected to payment screen
+            if (logChk && !nullChk) {
+                //if user has logged in and any least one seat is selected then user will be redirected to payment screen
                 c1.show(jPanelContainer, "4");
-                paySrclogout = true;
-                payPReceptTA.setText("\n" +
-                        "          Recept \n" + "\n" +
+                paySrcLogout = true;
+                payPReceiptTA.setText("\n" +
+                        "          Receipt \n" + "\n" +
                         " Movie : " + name + "\n" +
                         " Time : " + time + "\n" +
                         " Date : " + date + "\n" +
@@ -1942,7 +2027,7 @@ public class Framework {
                 sum += price;
                 //adding seat number to a string variable
                 seat += " 1A";
-                //setting seat's value to 1 if user selects a seat this will be needed to updated the database
+                //setting seat's value to 1 if user selects a seat this will be needed to update the database
                 getSeats[0] = 1;
 
             }
@@ -1951,9 +2036,9 @@ public class Framework {
             else if (seat1A.getBackground().getRGB() == -4144960) {
                 seat1A.setBackground(Color.green);
                 sum -= price;
-                //replacing the seat number to null if user deslect the seat
+                //replacing the seat number to null if user deselect the seat
                 seat = seat.replace(" 1A", "");
-                //setting seat's value to 1 if user selects a seat this will be needed to updated the database
+                //setting seat's value to 1 if user selects a seat this will be needed to update the database
                 getSeats[0] = 0;
 
 
@@ -2165,12 +2250,12 @@ public class Framework {
 
 
 
-        // authorizaion buttons
+        // authorization buttons
         autFPBackBtn.addActionListener(e -> {
-//checking if user on authorization screen has come from while buying tickets or from Jmenu button
-            if (paychk) {
-                c1.show(jPanelContainer, "0"); //if comes from landing page then will return to landing page
-            } else c1.show(jPanelContainer, "2"); //if comes while buying tickets then will return to buying page
+//checking if user on authorization screen has come from while buying tickets or from Menu button
+            if (payChk) {
+                c1.show(jPanelContainer, "0"); //if it comes from landing page then will return to landing page
+            } else c1.show(jPanelContainer, "2"); //if it comes while buying tickets then will return to buying page
 
 
         });
@@ -2189,7 +2274,7 @@ public class Framework {
             autFPShowLoginBtn.setVisible(true);
             autFPSubmitBtn.setVisible(false);
             autFPRegisterSubmitBtn.setVisible(true);
-            autFPPromt.setText("");
+            autFPPrompt.setText("");
             autFPEmailTF.setText("");
             autFPPasswordPassF.setText("");
 
@@ -2197,7 +2282,7 @@ public class Framework {
         });
 
         autFPShowLoginBtn.addActionListener(e -> {
-            // on this button click all elements for login will get true and registratiobn elements will get hidden
+            // on this button click all elements for login will get true and registration elements will get hidden
             autFPEmailLabel.setBounds(120, 120, 200, 30);
             autFPEmailTF.setBounds(120, 150, 200, 30);
 
@@ -2223,17 +2308,17 @@ public class Framework {
         //login submit button
         autFPSubmitBtn.addActionListener(e -> {
 
-            String etemp = autFPEmailTF.getText();
-            String ptemp = Arrays.toString(autFPPasswordPassF.getPassword());
+            String tempEmail = autFPEmailTF.getText();
+            String tempPass = Arrays.toString(autFPPasswordPassF.getPassword());
             // removing all brackets and spaces from password field
-            ptemp = getUserFuctions.remover(ptemp);
+            tempPass = getUserFunctions.remover(tempPass);
 
 
             //checking weather email text area contains proper email addy or not
 
 
-            if (!getUserFuctions.atChk(etemp)) {
-                autFPPromt.setText("Wrong \"Email\" type");
+            if (!getUserFunctions.atChk(tempEmail)) {
+                autFPPrompt.setText("Wrong \"Email\" type");
                 autFPEmailTF.setForeground(Color.red);
 
             }
@@ -2242,7 +2327,7 @@ public class Framework {
             //authorizing the login details from database
 
             else {
-                autFPPromt.setText("");
+                autFPPrompt.setText("");
                 autFPEmailTF.setForeground(Color.black);
 
 
@@ -2251,15 +2336,15 @@ public class Framework {
 
 
                     Statement sta = connection.createStatement();
-                    String query = "select * from users where email = '" + etemp + "' and password = '" + ptemp + "'";
+                    String query = "select * from users where email = '" + tempEmail + "' and password = '" + tempPass + "'";
                     ResultSet rs = sta.executeQuery(query);
 
                     if (rs.next()) {
-                        nametemp = rs.getString("name");
-                        JOptionPane.showMessageDialog(jPanelContainer, "Welcome Back " + nametemp, "Prompt", JOptionPane.WARNING_MESSAGE);
+                        nameTemp = rs.getString("name");
+                        JOptionPane.showMessageDialog(jPanelContainer, "Welcome Back " + nameTemp, "Prompt", JOptionPane.WARNING_MESSAGE);
 
-                        //setting login check to true on succesful login
-                        logchk = true;
+                        //setting login check to true on successful login
+                        logChk = true;
 
                         //getting the user balance
                         bal = rs.getInt("balance");
@@ -2268,10 +2353,10 @@ public class Framework {
                         getUserId = rs.getInt("id");
 
                         //user email has been stored to a global variable for future use
-                        recEmailVar = etemp;
+                        recEmailVar = tempEmail;
 
-                        //setting user name to jmenu bar
-                        userMenu.setText(nametemp);
+                        //setting username to menu bar
+                        userMenu.setText(nameTemp);
 
                         //setting all  user needed menus to visible on login
 
@@ -2289,7 +2374,7 @@ public class Framework {
                         // setting admin duty checker to false on login from user credentials
                         isAdminOnDuty = false;
 
-                        //relocating the payment screen buttons on relogin
+                        //relocating the payment screen buttons on login
                         payPCreditCardMethodBtn.setBounds(300, 180, 130, 30);
                         payPCreditCardMethodBtn.setVisible(true);
                         payPWalletMethodBtn.setVisible(true);
@@ -2307,27 +2392,27 @@ public class Framework {
                         payPGetAvailableBal.setVisible(false);
                         payPWalletPayBtn.setVisible(false);
                         payPAvailableBalLabel.setVisible(false);
-                        payPDepostBtn.setVisible(false);
+                        payPDepositBtn.setVisible(false);
 
                         // checking the password length to check if password is strong or not for user setting panel
 
                         //user password has been stored to another global variable for global usage
-                        getUserPass = ptemp;
+                        getUserPass = tempPass;
                         getFWFunctions.checkPassStatus(getUserPass, userSPassStatus);
 
-                        // on succesfully login redirecting user to desired screen
-                        //if user came from movie selection screen then he'll be redirect to payment screen
-                        if (!paychk) {
-                            paySrclogout = true; // pay screen logout = true that means if a person later logout from payment screen then this checking variable will be used accordingly
+                        // on successfully login redirecting user to desired screen
+                        //if user came from movie selection screen then he'll be redirected to payment screen
+                        if (!payChk) {
+                            paySrcLogout = true; // pay screen logout = true that means if a person later logout from payment screen then this checking variable will be used accordingly
                             c1.show(jPanelContainer, "4");
-                        } else c1.show(jPanelContainer, "0"); //else he'll redirected to landing page
+                        } else c1.show(jPanelContainer, "0"); //else he'll be redirected to landing page
 
                     } else
                         JOptionPane.showMessageDialog(jPanelContainer, "Wrong email or password", "Prompt", JOptionPane.WARNING_MESSAGE);
 
 
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
 
                 }
             }
@@ -2336,34 +2421,34 @@ public class Framework {
         });
 
 
-        //added a keylistner to change the color of email field to black on clicked @ button
+        //added a listener to change the color of email field to black on clicked @ button
         getFWFunctions.atTheRate(autFPEmailTF);
 // register submit button
         autFPRegisterSubmitBtn.addActionListener(e -> {
-            String etemp = autFPEmailTF.getText();
-            String ptemp = Arrays.toString(autFPPasswordPassF.getPassword());
-            String cptemp = Arrays.toString(autFPConfPasswordTF.getPassword());
-            String fntemp = autFPFirstNameTF.getText();
+            String tempEmail = autFPEmailTF.getText();
+            String tempPass = Arrays.toString(autFPPasswordPassF.getPassword());
+            String tempConfPass = Arrays.toString(autFPConfPasswordTF.getPassword());
+            String tempName = autFPFirstNameTF.getText();
             // removing all brackets and spaces from password field
-            ptemp = getUserFuctions.remover(ptemp);
-            cptemp = getUserFuctions.remover(cptemp);
+            tempPass = getUserFunctions.remover(tempPass);
+            tempConfPass = getUserFunctions.remover(tempConfPass);
 
 
             //checking weather email text area contains proper email addy or not with password compare
 
-            if (!getUserFuctions.atChk(etemp)) {
-                autFPPromt.setText("Wrong \"Email\" type");
+            if (!getUserFunctions.atChk(tempEmail)) {
+                autFPPrompt.setText("Wrong \"Email\" type");
                 autFPEmailTF.setForeground(Color.red);
-               if (!getUserFuctions.passCompare(ptemp, cptemp)) {
-                    autFPPromt.setText("Wrong \"Email\" type " + " and Passwords doesn't match");
+               if (!getUserFunctions.passCompare(tempPass, tempConfPass)) {
+                    autFPPrompt.setText("Wrong \"Email\" type " + " and Passwords doesn't match");
                     autFPPasswordPassF.setForeground(Color.red);
                     autFPConfPasswordTF.setForeground(Color.red);
-                    if (!getUserFuctions.passLenchk(ptemp)) {
-                        autFPPromt.setText("Passwords must be greater than 8 character");
+                    if (!getUserFunctions.passLenchk(tempPass)) {
+                        autFPPrompt.setText("Passwords must be greater than 8 character");
                         autFPPasswordPassF.setForeground(Color.red);
 
-                        if (!getUserFuctions.nameLenChk(fntemp)) {
-                            autFPPromt.setText("name must be greater than 4 characters");
+                        if (!getUserFunctions.nameLenChk(tempName)) {
+                            autFPPrompt.setText("name must be greater than 4 characters");
                             autFPFirstNameTF.setForeground(Color.red);
 
                         }
@@ -2372,51 +2457,51 @@ public class Framework {
             }
 
             // checking only password if email is correct
-            else if (!getUserFuctions.passCompare(ptemp, cptemp)) {
-                autFPPromt.setText("Passwords doesn't match");
+            else if (!getUserFunctions.passCompare(tempPass, tempConfPass)) {
+                autFPPrompt.setText("Passwords doesn't match");
                 autFPPasswordPassF.setForeground(Color.red);
                 autFPConfPasswordTF.setForeground(Color.red);
 
 
             }
-            // checking if the pasword length is more Than 8
-            else if (!getUserFuctions.passLenchk(ptemp)) {
-                autFPPromt.setText("Passwords must be greater than 8 character");
+            // checking if the password length is more Than 8
+            else if (!getUserFunctions.passLenchk(tempPass)) {
+                autFPPrompt.setText("Passwords must be greater than 8 character");
                 autFPPasswordPassF.setForeground(Color.red);
 
             }
 
             // checking if the name length is more than 4
-            else if (!getUserFuctions.nameLenChk(fntemp)) {
-                autFPPromt.setText("name must be greater than 4 characters");
+            else if (!getUserFunctions.nameLenChk(tempName)) {
+                autFPPrompt.setText("name must be greater than 4 characters");
                 autFPFirstNameTF.setForeground(Color.red);
 
-                // if all above confition does not satisfy that means we have no error and user will be registered
+                // if all above condition does not satisfy that means we have no error and user will be registered
             } else {
 
                 autFPPasswordPassF.setForeground(Color.black);
                 autFPConfPasswordTF.setForeground(Color.black);
                 autFPFirstNameTF.setForeground(Color.black);
-                autFPPromt.setText("");
+                autFPPrompt.setText("");
                 autFPEmailTF.setForeground(Color.black);
 
                 // connecting database to store the registration values
                 try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
 
-                    String query = "INSERT INTO users (name, email, password) VALUES ('" + fntemp + "','" + etemp + "','" + ptemp + "')";
+                    String query = "INSERT INTO users (name, email, password) VALUES ('" + tempName + "','" + tempEmail + "','" + tempPass + "')";
 
                     Statement sta = connection.createStatement();
                     sta.executeUpdate(query);
 //
                     connection.close();
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Succesfult Registered", "Prompt", JOptionPane.WARNING_MESSAGE);
-                    logchk = true;
-                    // paychk will only be false if we are going from selection page to payment and if we are registered
+                    JOptionPane.showMessageDialog(jPanelContainer, "Successful Registered", "Prompt", JOptionPane.WARNING_MESSAGE);
+                    logChk = true;
+                    // paycheck will only be false if we are going from selection page to payment and if we are registered
                     // successfully while buy ticket we will redirect to payment page else to homepage
-                    if (!paychk) {
-                        paySrclogout = true;
+                    if (!payChk) {
+                        paySrcLogout = true;
                         c1.show(jPanelContainer, "4");
                     } else c1.show(jPanelContainer, "0");
 
@@ -2452,7 +2537,7 @@ public class Framework {
             payPGetAvailableBal.setVisible(false);
             payPWalletPayBtn.setVisible(false);
             payPAvailableBalLabel.setVisible(false);
-            payPDepostBtn.setVisible(false);
+            payPDepositBtn.setVisible(false);
 
 
         });
@@ -2462,7 +2547,7 @@ public class Framework {
             // checking if balance is enough or not then just colouring the labels and showing deposit btn if bal is low
             if (bal < sum) {
                 payPBackBtn.setBounds(300, 270, 130, 30);
-                payPDepostBtn.setVisible(true);
+                payPDepositBtn.setVisible(true);
                 payPGetAvailableBal.setForeground(Color.red);
 
             } else {
@@ -2496,16 +2581,16 @@ public class Framework {
 
             //checking if balance is greater than the sum (user total)
             if (bal >= sum) {
-                payStatus = true;
 
-                //getting a current date in a varibale
-                String purDate = String.valueOf(getUserFuctions.getDate());
+
+                //getting a current date in a variable
+                String purDate = String.valueOf(getUserFunctions.getDate());
                 //creating a new unique ticket id
-                String ticketId = getUserFuctions.generateUniqueId();
+                String ticketId = getUserFunctions.generateUniqueId();
                 String medium = "Wallet";
 
-                purReceptTextArea.setText("\n" +
-                        " Recept \n" + "\n" +
+                purReceiptTextArea.setText("\n" +
+                        " Receipt \n" + "\n" +
                         " Movie : " + name + "\n" +
                         " Time : " + time + "\n" +
                         " Date : " + date + "\n" +
@@ -2515,8 +2600,8 @@ public class Framework {
                         " Email : " + recEmailVar + "\n" +
                         " Purchased on " + purDate + "\n" +
                         " Ticket id : #" + ticketId);
-                int rembal = bal - sum;
-                bal = rembal;
+                int remBal = bal - sum;
+                bal = remBal;
 
 
                 seatSPUserTotal.setText("Total: ");
@@ -2526,29 +2611,28 @@ public class Framework {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
 
                     String query = "INSERT INTO tickets (id, movie, time, date, seats, amountPaid, medium, email, purDate) VALUES ('" + ticketId + "','" + name + "','" + time + "','" + date + "','" + tickets + "','" + sum + "','" + medium + "','" + recEmailVar + "','" + purDate + "')";
-                    String querry2 = "UPDATE movies SET 1A ='" + getSeats[0] + "'," + "2A = '" + getSeats[1] + "'," + "3A = '" + getSeats[2] + "'," + "1B = '" + getSeats[3] + "'," + "2B = '" + getSeats[4] + "'," + "3B = '" + getSeats[5] + "'," + "1C = '" + getSeats[6] + "'," + "2C = '" + getSeats[7] + "'," + "3C = '" + getSeats[8] + "'WHERE name ='" + name + "'";
-                    String querry3 = "UPDATE users SET balance = '" + rembal + "'WHERE email = '" + recEmailVar + "'";
+                    String query2 = "UPDATE movies SET 1A ='" + getSeats[0] + "'," + "2A = '" + getSeats[1] + "'," + "3A = '" + getSeats[2] + "'," + "1B = '" + getSeats[3] + "'," + "2B = '" + getSeats[4] + "'," + "3B = '" + getSeats[5] + "'," + "1C = '" + getSeats[6] + "'," + "2C = '" + getSeats[7] + "'," + "3C = '" + getSeats[8] + "'WHERE name ='" + name + "'";
+                    String query3 = "UPDATE users SET balance = '" + remBal + "'WHERE email = '" + recEmailVar + "'";
                     Statement sta = connection.createStatement();
                     sta.executeUpdate(query);
-                    sta.executeUpdate(querry2);
-                    sta.executeUpdate(querry3);
+                    sta.executeUpdate(query2);
+                    sta.executeUpdate(query3);
 //
                     connection.close();
                     walletM.setText("Wallet (" + bal + ")");
                     payPGetAvailableBal.setText(bal + " Rs");
                     JOptionPane.showMessageDialog(jPanelContainer, "Purchased");
 
-                    getBackToPayScreen = false;
-                    c1.show(jPanelContainer, "recept");
+                    c1.show(jPanelContainer, "receipt");
 
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(jPanelContainer, "An error occured while performing the task", "Error 509", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while performing the task", "Error 509", JOptionPane.WARNING_MESSAGE);
                     seat = " ";
 
 
                 }
 
-                paySrclogout = false;
+                paySrcLogout = false;
 
 
             } else {
@@ -2556,7 +2640,7 @@ public class Framework {
                 payPGetAvailableBal.setForeground(Color.red);
                 JOptionPane.showMessageDialog(jPanelContainer, "Low Balance! you need " + remChk + " RS more", "Prompt", JOptionPane.WARNING_MESSAGE);
                 payPBackBtn.setBounds(300, 270, 130, 30);
-                payPDepostBtn.setVisible(true);
+                payPDepositBtn.setVisible(true);
 
             }
 
@@ -2570,14 +2654,14 @@ public class Framework {
             getCardTitle = payPAccTitleTF.getText();
             getCardNum = Integer.parseInt(payPCardNumTf.getText());
             getCardCvc = Integer.parseInt(payPCvcTf.getText());
-            getCardtype = (String) payPCardTypeComboBox.getItemAt(payPCardTypeComboBox.getSelectedIndex());
+            getCardType = payPCardTypeComboBox.getItemAt(payPCardTypeComboBox.getSelectedIndex());
             //creating a connection to check the card info from pib bank database
             try {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pib_db", "root", "");
 
 
                 Statement sta = connection.createStatement();
-                String query = "select * from card where cardNum = '" + getCardNum + "' and cardTitle = '" + getCardTitle + "' and cardCvc = '" + getCardCvc + "' and cardType = '" + getCardtype + "'";
+                String query = "select * from card where cardNum = '" + getCardNum + "' and cardTitle = '" + getCardTitle + "' and cardCvc = '" + getCardCvc + "' and cardType = '" + getCardType + "'";
                 ResultSet rs = sta.executeQuery(query);
                 if (rs.next()) {
 
@@ -2600,13 +2684,13 @@ public class Framework {
 
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jPanelContainer, "An error occured in Authorization of the PIB Card", "Error 603", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "An error occurred in Authorization of the PIB Card", "Error 603", JOptionPane.WARNING_MESSAGE);
             }
         });
 
         // then transaction confirming popup will appear which will to confirm your Bank password
         transWLoginBtn.addActionListener(e -> {
-            editData[0] = Arrays.toString(transWPasswordPassFeild.getPassword());
+            editData[0] = Arrays.toString(transWPasswordPassField.getPassword());
 
           // creating a connection to bank database to validate the password
             try {
@@ -2618,12 +2702,12 @@ public class Framework {
                 ResultSet rs = sta.executeQuery(query);
                 if (rs.next()) {
                     //getting the balance of the account
-                    getpibBal = rs.getInt("balance");
+                    getPibBal = rs.getInt("balance");
 
-                    transWPasswordPassFeild.setVisible(false);
+                    transWPasswordPassField.setVisible(false);
                     transWPasswordPFLabel.setVisible(false);
                     transWShowBalanceTF.setVisible(true);
-                    transWShowBalanceTF.setText(String.valueOf(getpibBal));
+                    transWShowBalanceTF.setText(String.valueOf(getPibBal));
                     transWShowBalanceLabel.setVisible(true);
                     transWLoginBtn.setVisible(false);
                     transWPayBtn.setVisible(true);
@@ -2637,7 +2721,7 @@ public class Framework {
 
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jPanelContainer, "An error occured while connecting to database", "Error 307", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to database", "Error 307", JOptionPane.WARNING_MESSAGE);
             }
 
 
@@ -2657,29 +2741,28 @@ public class Framework {
                     Statement sta = connection.createStatement();
 
                       // if pib bank balance is greater than the payment
-                    if (getpibBal >= sum) {
-                        int total = getpibBal - sum; // if true then subtracting the payment amount from the total balance and pushing it to database to update the balance
+                    if (getPibBal >= sum) {
+                        int total = getPibBal - sum; // if true then subtracting the payment amount from the total balance and pushing it to database to update the balance
 
                         String updateBalQuery = "update pib_data set balance ='" + total + "'where u_Name='" + getCardTitle + "'";
                         sta.executeUpdate(updateBalQuery);
 
-                        // if try works then the transaction has approve and user will recieve a confirmation message
+                        // if try works then the transaction has approved and user will receive a confirmation message
                         JOptionPane.showMessageDialog(jPanelContainer, "Transaction Approved");
                         transWindowFrame.dispose(); // and transaction window will be closed
 
-                        payStatus = true; // paystatus will be true
 
                         // if payment approved then
                         // adding current date to a string variable
-                        String purDate = String.valueOf(getUserFuctions.getDate());
+                        String purDate = String.valueOf(getUserFunctions.getDate());
                         // creating a unique ticket id then adding it to string variable
-                        String ticketId = getUserFuctions.generateUniqueId();
+                        String ticketId = getUserFunctions.generateUniqueId();
 
-                        //setting text of ticket data to user recept
+                        //setting text of ticket data to user receipt
                         String medium = "PIB Debit";
 
-                        purReceptTextArea.setText("\n" +
-                                " Recept \n" + "\n" +
+                        purReceiptTextArea.setText("\n" +
+                                " Receipt \n" + "\n" +
                                 " Movie : " + name + "\n" +
                                 " Time : " + time + "\n" +
                                 " Date : " + date + "\n" +
@@ -2693,7 +2776,7 @@ public class Framework {
 
                         seatSPUserTotal.setText("Total = "); // setting total to null
 
-                        c1.show(jPanelContainer, "recept"); // showing recept screen
+                        c1.show(jPanelContainer, "receipt"); // showing receipt screen
                         connection.close();
 
 
@@ -2703,7 +2786,7 @@ public class Framework {
 
                         String query = "INSERT INTO tickets (id, movie, time, date, seats, amountPaid, medium, email, purDate) VALUES ('" + ticketId + "','" + name + "','" + time + "','" + date + "','" + tickets + "','" + sum + "','" + medium + "','" + recEmailVar + "','" + purDate + "')";
                         String query2 = "UPDATE movies SET 1A ='" + getSeats[0] + "'," + "2A = '" + getSeats[1] + "'," + "3A = '" + getSeats[2] + "'," + "1B = '" + getSeats[3] + "'," + "2B = '" + getSeats[4] + "'," + "3B = '" + getSeats[5] + "'," + "1C = '" + getSeats[6] + "'," + "2C = '" + getSeats[7] + "'," + "3C = '" + getSeats[8] + "'WHERE name ='" + name + "'";
-                        String query3 = "INSERT INTO card_payment_info (ticket_id,card_title,card_num,card_cvc,card_type) VALUES ('" + ticketId + "','" + getCardTitle + "','" + getCardNum + "','" + getCardCvc + "','" + getCardtype + "')";
+                        String query3 = "INSERT INTO card_payment_info (ticket_id,card_title,card_num,card_cvc,card_type) VALUES ('" + ticketId + "','" + getCardTitle + "','" + getCardNum + "','" + getCardCvc + "','" + getCardType + "')";
                         Statement sta2 = connection2.createStatement();
                         sta2.executeUpdate(query);
                         sta2.executeUpdate(query2);
@@ -2714,24 +2797,23 @@ public class Framework {
 
 
                         JOptionPane.showMessageDialog(jPanelContainer, "Purchased");
-                        //ticket purchased promtpt
-                        getBackToPayScreen = false; // this checking variable is used to redirect user to again to payment screen if a person used deposit button to deposit money then he will redirect to payment screen rather than to any other screen
+                        //ticket purchased prompt
                         chkPibTransMethod = 0; //resetting it to default
 
-                        paySrclogout = false;
+                        paySrcLogout = false;
 
                     } else
                         JOptionPane.showMessageDialog(jPanelContainer, "Transaction denied (Low Balance)", "Error 404", JOptionPane.WARNING_MESSAGE);
 
 
                 } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(jPanelContainer, "An error occured while coonecting to database", "Error 302", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to database", "Error 302", JOptionPane.WARNING_MESSAGE);
                 }
             } else if (chkPibTransMethod == 2) {
-                // if user used card to deposit money into his in app wallet then this condition will be true
+                // if user used card to deposit money into his in-app wallet then this condition will be true
                 int tempAmtAdd = Integer.parseInt(editData[4]); // getting the amount user wants to add in a variable
-                if (tempAmtAdd >= 100) { //contditon that minimum amount to add must be 100 or greater
-                    if (getpibBal >= tempAmtAdd) { //if bank balance is greater than the amount to be add
+                if (tempAmtAdd >= 100) { //condition that minimum amount to add must be 100 or greater
+                    if (getPibBal >= tempAmtAdd) { //if bank balance is greater than the amount to be added
                         //if yes then creating a connection to get balance from bank database
                         try {
                             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pib_db", "root", "");
@@ -2740,30 +2822,37 @@ public class Framework {
                             Statement sta = connection.createStatement();
 
 
-                            int total = getpibBal - tempAmtAdd; // got the balance after depositing in the wallet
+                            int total = getPibBal - tempAmtAdd; // got the balance after depositing in the wallet
 
 
                             String updateBalQuery = "update pib_data set balance ='" + total + "'where u_Name='" + editData[1] + "'";
-                            sta.executeUpdate(updateBalQuery); // proceding with the update here
+                            sta.executeUpdate(updateBalQuery); // proceeding with the update here
 
 
-                            JOptionPane.showMessageDialog(jPanelContainer, "Funds Added Succesfully");
+                            JOptionPane.showMessageDialog(jPanelContainer, "Funds Added Successfully");
                             bal += tempAmtAdd; // adding the added amount to user global balance variable
                             walletM.setText("Wallet (" + bal + ")");
                             userWAccountTitleTF.setForeground(Color.BLACK);
-                            userWDepoApproveBtn.setVisible(false);
+                            userWDepositApproveBtn.setVisible(false);
                             userWAmtToAddTF.setVisible(false);
                             userWAmtToAddLabel.setVisible(false);
                             userWAccountTitleTF.setVisible(false);
                             userWAccountTitleLabel.setVisible(false);
                             chkPibTransMethod = 0;
+                            userWShowAvailableBal.setText("Available account balance = " + bal);
+
+                            payPGetAvailableBal.setText(String.valueOf(bal));
+                            if(bal>=sum){
+                                payPGetAvailableBal.setForeground(Color.black);
+                            }
+
                             transWindowFrame.dispose(); // closing the frame here
 //
 
                             connection.close();
                         } catch (SQLException ex) {
 
-                            JOptionPane.showMessageDialog(jPanelContainer, "An error occured while connecting to pib bank database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to pib bank database", "Error 302", JOptionPane.WARNING_MESSAGE);
 
                         }
                         try {
@@ -2775,7 +2864,7 @@ public class Framework {
                             sta.executeUpdate(updateUserBalQuery);
 
                         } catch (SQLException ex) {
-                            JOptionPane.showMessageDialog(jPanelContainer, "An error occured while connecting to cinepop database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to cinepop database", "Error 302", JOptionPane.WARNING_MESSAGE);
 
 
                         }
@@ -2798,8 +2887,7 @@ public class Framework {
 
         });
 
-        payPDepostBtn.addActionListener(e -> {
-            getBackToPayScreen = true; // means user must return to payment screen after depositing
+        payPDepositBtn.addActionListener(e -> {
             c1.show(jPanelContainer, "wallet"); // showing wallet screen
             userWShowAvailableBal.setText("Available account balance = " + bal); //setting text
         });
@@ -2809,7 +2897,7 @@ public class Framework {
             c1.show(jPanelContainer, "2"); // going from payment panel to seat selection screen
             seatSPShowSelectedSeatsLabel.setText(seat);
             payPGetAvailableBal.setForeground(Color.black);
-            paySrclogout = false; // setting pay screen logout to false means user is out of payment process and will be dealt accordingly
+            paySrcLogout = false; // setting pay screen logout to false means user is out of payment process and will be dealt accordingly
 
         });
 
@@ -2820,7 +2908,7 @@ public class Framework {
             sum = 0;
             autFPPasswordPassF.setText("");
             userWAccountTitleTF.setForeground(Color.BLACK);
-            userWDepoApproveBtn.setVisible(false);
+            userWDepositApproveBtn.setVisible(false);
             userWAmtToAddTF.setVisible(false);
             userWAmtToAddLabel.setVisible(false);
             userWAccountTitleTF.setVisible(false);
@@ -2832,21 +2920,19 @@ public class Framework {
         });
         adminsSubMenu.addActionListener(e -> c1.show(jPanelContainer, "adminPan"));
 
-        searchTM.addActionListener(e -> {
-            c1.show(jPanelContainer, "serTic");
-        });
+        searchTM.addActionListener(e -> c1.show(jPanelContainer, "serTic"));
 
         loginM.addActionListener(e -> {
-            paychk = true;
+            payChk = true;
             autFPPasswordPassF.setText("");
 
 
             c1.show(jPanelContainer, "3");
         });
         logOutM.addActionListener(e -> {
-            logchk = false;
-            nametemp = "Guest";
-            userMenu.setText(nametemp);
+            logChk = false;
+            nameTemp = "Guest";
+            userMenu.setText(nameTemp);
 
 
             myTicketsM.setVisible(false);
@@ -2861,7 +2947,7 @@ public class Framework {
 
 
 // checking if a user logged out from paying screen or not
-            if (paySrclogout) {
+            if (paySrcLogout) {
                 autFPPasswordPassF.setText("");
                 c1.show(jPanelContainer, "3");
 
@@ -2870,7 +2956,7 @@ public class Framework {
 
             if (bal >= sum) {
                 //if user balance is not low then not showing deposit btn
-                payPDepostBtn.setVisible(false);
+                payPDepositBtn.setVisible(false);
 
             }
 
@@ -2882,26 +2968,123 @@ public class Framework {
             userWShowAvailableBal.setText("Available account balance = " + bal);
         });
 
-        // menu admin submenu butons action
+        // menu admin submenu buttons action
+adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
+        editUserM.addActionListener(e ->{
+            int rowCount = adminsUEModel.getRowCount();
+            for (int g = rowCount - 1; g >= 0; g--) {
+                adminsUEModel.removeRow(g);}
 
-        editUserM.addActionListener(e -> {
-            c1.show(jPanelContainer, "editMov");
+
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
+
+
+                Statement sta = connection.createStatement();
+
+                String query2 = "select * from users";
+                ResultSet rs2 = sta.executeQuery(query2);
+                while (rs2.next()) {
+
+
+                    getName.set(rs2.getString("name"));
+                    getId = rs2.getString("id");
+                    getEmail = rs2.getString("email");
+                    getPass = rs2.getString("password");
+                    getBal = rs2.getInt("balance");
+
+
+                    String[] tbData = {String.valueOf(getId), String.valueOf(getEmail), String.valueOf(getName), String.valueOf(getPass), String.valueOf(getBal)};
+
+                    adminsUEModel.addRow(tbData);
+                }
+                c1.show(jPanelContainer, "editUsers");
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+            }
+
         });
 
-        editTicketsM.addActionListener(e -> {
-            c1.show(jPanelContainer, "ticketStatus");
+        editTicketsM.addActionListener(e ->{
+            int rowCount = adminsTicketsTabModel.getRowCount();
+            for (int g = rowCount - 1; g >= 0; g--) {
+                adminsTicketsTabModel.removeRow(g);
+            }
+
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
+
+
+                Statement sta = connection.createStatement();
+                String query2 = "select * from tickets";
+                ResultSet rs2 = sta.executeQuery(query2);
+                while (rs2.next()) {
+
+                    editData[0] = rs2.getString("id");
+                    editData[1] = rs2.getString("movie");
+                    editData[2] = rs2.getString("time");
+                    editData[3] = rs2.getString("date");
+                    editData[4] = rs2.getString("seats");
+                    editData[5] = rs2.getString("amountPaid");
+                    editData[6] = rs2.getString("medium");
+                    editData[7] = rs2.getString("email");
+                    editData[8] = rs2.getString("purDate");
+
+                    String[] tbData = {String.valueOf(editData[0]), String.valueOf(editData[1]), String.valueOf(editData[2]), String.valueOf(editData[3]), String.valueOf(editData[4]), String.valueOf(editData[5]), String.valueOf(editData[6]), String.valueOf(editData[7]), String.valueOf(editData[8])};
+
+                    adminsTicketsTabModel.addRow(tbData);
+                }
+                c1.show(jPanelContainer, "ticketStatus");
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+            }
+
         });
         editAdminsM.addActionListener(e -> {
-            c1.show(jPanelContainer, "adminsInfo");
+            int rowCount = adminsAETabModel.getRowCount();
+            for (int g = rowCount - 1; g >= 0; g--) {
+                adminsAETabModel.removeRow(g);
+            }
+
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
+
+
+                Statement sta = connection.createStatement();
+
+                String query2 = "select * from admins";
+                ResultSet rs2 = sta.executeQuery(query2);
+                while (rs2.next()) {
+
+                    editData[0] = rs2.getString("id");
+                    editData[1] = rs2.getString("adName");
+                    editData[2] = rs2.getString("adEmail");
+                    editData[3] = rs2.getString("adPassword");
+
+
+                    String[] tbData = {String.valueOf(editData[0]), String.valueOf(editData[1]), String.valueOf(editData[2]), String.valueOf(editData[3])};
+
+                    adminsAETabModel.addRow(tbData);
+                }
+                c1.show(jPanelContainer, "adminsInfo");
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+            }
         });
         settingsM.addActionListener(e -> {
 
-            userSPromt.setText("");
+            userSPrompt.setText("");
             userSUpdateThisTF.setText("");
             userSNewPasswordTF.setText("");
 
-            userSYourNameLabel.setText("Your Name : " + nametemp);
-            userSyourEmailLabel.setText("Your Email : " + recEmailVar);
+            userSYourNameLabel.setText("Your Name : " + nameTemp);
+            userSYourEmailLabel.setText("Your Email : " + recEmailVar);
             c1.show(jPanelContainer, "settings");
             chkUpdateBtn = 0;
             autFPConfPasswordTF.setVisible(false);
@@ -2915,23 +3098,23 @@ public class Framework {
 
 
         // admin panel buttons
-        getFWFunctions.atTheRate(adminsPEmailTF); //called fuction which will change the colour from red to black on clicking @ button
+        getFWFunctions.atTheRate(adminsPEmailTF); //called function which will change the colour from red to black on clicking @ button
         adminsPBackBtn.addActionListener(e -> c1.show(jPanelContainer, "0")); // on admin login form back button redirect to landing screen
         adminsPSubmitBtn.addActionListener(e -> {
 
-                     // checking if admin is trying to login as admin while logged in as user if not then code will procced
-                    if (!logchk) {
+                     // checking if admin is trying to log in as admin while logged in as user if not then code will proceed
+                    if (!logChk) {
 
-                        String etemp = adminsPEmailTF.getText();
-                        String ptemp = Arrays.toString(adminsPPasswordPassFeild.getPassword());
+                        String tempEmail = adminsPEmailTF.getText();
+                        String tempPass = Arrays.toString(adminsPPasswordPassField.getPassword());
                         // removing all brackets and spaces from password field
-                        ptemp = getUserFuctions.remover(ptemp);
+                        tempPass = getUserFunctions.remover(tempPass);
 
 
                         //checking weather email text area contains proper email addy or not
 
 
-                        if (!getUserFuctions.atChk(etemp)) {
+                        if (!getUserFunctions.atChk(tempEmail)) {
                             adminsPPrompt.setText("Wrong \"Email\" type");
                             adminsPEmailTF.setForeground(Color.red);
 
@@ -2949,18 +3132,17 @@ public class Framework {
                                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
 
 
-                                Statement sta = null;
-                                sta = connection.createStatement();
-                                String query = "select * from admins where adEmail = '" + etemp + "' and adPassword = '" + ptemp + "'";
+                                Statement sta = connection.createStatement();
+                                String query = "select * from admins where adEmail = '" + tempEmail + "' and adPassword = '" + tempPass + "'";
                                 ResultSet rs = sta.executeQuery(query);
 
                                 if (rs.next()) {
 
-                                    nametemp = rs.getString("adName");
+                                    nameTemp = rs.getString("adName");
 
 
-                                    JOptionPane.showMessageDialog(jPanelContainer, "Welcome Back " + nametemp, "Prompt", JOptionPane.WARNING_MESSAGE);
-                                    userMenu.setText(nametemp);
+                                    JOptionPane.showMessageDialog(jPanelContainer, "Welcome Back " + nameTemp, "Prompt", JOptionPane.WARNING_MESSAGE);
+                                    userMenu.setText(nameTemp);
                                     userMenu.setForeground(Color.blue);
                                     settingsM.setVisible(true);
                                     adminsSubMenu.setVisible(true);
@@ -2974,7 +3156,7 @@ public class Framework {
 
                             } catch (SQLException ex) {
 
-                                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                             }
                         }
 
@@ -2982,16 +3164,13 @@ public class Framework {
                 }
         );
 
-        //recept buttons
+        //receipt buttons
 
-        purReceptBackBtn.addActionListener(e -> {
-
-            c1.show(jPanelContainer, "0");
-        });
+        purReceiptBackBtn.addActionListener(e -> c1.show(jPanelContainer, "0"));
         //search ticket button actions implimentation
         ticketSGetTicketBtn.addActionListener(e -> {
 
-                    String tempId = enterTicketIdToSearchTF.getText(); // getting the id of ticket to search it to the data base
+                    String tempId = enterTicketIdToSearchTF.getText(); // getting the id of ticket to search it to the database
 
                     try {
                         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
@@ -3034,7 +3213,7 @@ public class Framework {
 
                     } catch (Exception ex) {
 
-                        JOptionPane.showMessageDialog(jPanelContainer, "Could'nt Fetch Ticket Data form Database", "Error 708", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(jPanelContainer, "Couldn't Fetch Ticket Data form Database", "Error 708", JOptionPane.WARNING_MESSAGE);
 
                     }
 
@@ -3042,9 +3221,7 @@ public class Framework {
                 }
 
         );
-        ticketSBackBtn.addActionListener(e -> {
-            c1.show(jPanelContainer, "0");
-        });
+        ticketSBackBtn.addActionListener(e -> c1.show(jPanelContainer, "0"));
 
 
         // editor buttons
@@ -3053,22 +3230,24 @@ public class Framework {
         movieEditorTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // added a mouse listner to listen the selection of row
+                // added a mouse listener to listen the selection of row
                 isRowSelected = true; //making it true means user has selected a row
                 getRowId = movieEditorTable.getSelectedRow(); //getting row id then to use it to get all data of selected row in variable
-                getId = movieETabModel.getValueAt(getRowId, 0).toString();
-                movieEditNameTF.setText(movieETabModel.getValueAt(getRowId, 1).toString());
-                movieEditDateTF.setText(movieETabModel.getValueAt(getRowId, 2).toString());
-                movieEditTimeTF.setText(movieETabModel.getValueAt(getRowId, 3).toString());
-                movEditor1AComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 4));
-                movEditor2AComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 5));
-                movEditor3AComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 6));
-                movEditor1BComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 7));
-                movEditor2BComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 8));
-                movEditor3BComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 9));
-                movEditor1CComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 10));
-                movEditor2CComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 11));
-                movEditor3CComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 12));
+               if(getRowId>=0) {
+                   getId = movieETabModel.getValueAt(getRowId, 0).toString();
+                   movieEditNameTF.setText(movieETabModel.getValueAt(getRowId, 1).toString());
+                   movieEditDateTF.setText(movieETabModel.getValueAt(getRowId, 2).toString());
+                   movieEditTimeTF.setText(movieETabModel.getValueAt(getRowId, 3).toString());
+                   movEditor1AComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 4));
+                   movEditor2AComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 5));
+                   movEditor3AComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 6));
+                   movEditor1BComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 7));
+                   movEditor2BComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 8));
+                   movEditor3BComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 9));
+                   movEditor1CComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 10));
+                   movEditor2CComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 11));
+                   movEditor3CComboBox.setSelectedItem(movieETabModel.getValueAt(getRowId, 12));
+               }
 
             }
         });
@@ -3106,12 +3285,12 @@ public class Framework {
 //
                 connection.close();
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Movie added Succesfully", "Insert", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Movie added Successfully", "Insert", JOptionPane.WARNING_MESSAGE);
 
 
             } catch (SQLException ex) {
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
 
             }
 
@@ -3172,7 +3351,7 @@ public class Framework {
 
                 } catch (SQLException ex) {
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                 }
 
 
@@ -3188,7 +3367,7 @@ public class Framework {
         });
 
       getFWFunctions.textToNullOnClick(movieEditTimeTF);
-       getFWFunctions.textToNullOnClick( movieEditDateTF); //used functions to set text of textfield to null on user click
+       getFWFunctions.textToNullOnClick( movieEditDateTF); //used functions to set text of text-field to null on user click
 
         movieDeleteBtn.addActionListener(e -> {
 
@@ -3203,16 +3382,16 @@ public class Framework {
 
                     String query2 = "DELETE FROM `movies` WHERE id = '" + getId + "'";
                     sta.executeUpdate(query2);
-                    JOptionPane.showMessageDialog(EditorFrame, "Deleted Successfully", "Promt", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(EditorFrame, "Deleted Successfully", "Prompt", JOptionPane.WARNING_MESSAGE);
 
 
                 } catch (SQLException ex) {
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                 }
 
             }} else
-                JOptionPane.showMessageDialog(EditorFrame, "Select a row first", "Promt", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(EditorFrame, "Select a row first", "Prompt", JOptionPane.WARNING_MESSAGE);
 
 
         });
@@ -3240,7 +3419,6 @@ public class Framework {
                 try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
 
-//       String query = "UPDATE movies SET name ='" + sendMovName +"' "'WHERE u_Name ='"+ uObj.getpUserName() + "'";
 
                     PreparedStatement update = connection.prepareStatement
                             ("UPDATE movies SET name = ?, date = ?, time = ?, 1A = ?, 2A = ? , 3A = ? , 1B = ? , 2B = ? , 3B = ? , 1C = ? , 2C = ? , 3C = ?  WHERE id = ?");
@@ -3261,15 +3439,16 @@ public class Framework {
                     update.executeUpdate();
 //
                     connection.close();
+                    JOptionPane.showMessageDialog(EditorFrame, "Done", "Prompt", JOptionPane.WARNING_MESSAGE);
 
 
                 } catch (SQLException ex) {
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
 
                 }
             } else
-                JOptionPane.showMessageDialog(EditorFrame, "select a row first", "Promt", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(EditorFrame, "select a row first", "Prompt", JOptionPane.WARNING_MESSAGE);
 
 
         });
@@ -3325,7 +3504,7 @@ public class Framework {
                 c1.show(jPanelContainer, "editMov");
             } catch (SQLException ex) {
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
             }
         });
         editMovM.addActionListener(e -> {
@@ -3379,11 +3558,55 @@ public class Framework {
                 c1.show(jPanelContainer, "editMov");
             } catch (SQLException ex) {
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
             }
         });
 
+        myTicketsM.addActionListener(e-> {
+            int rowCount = userTlTableModel.getRowCount();
+            for (int g = rowCount - 1; g >= 0; g--) {
+                userTlTableModel.removeRow(g);
+            }
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
+
+
+                Statement sta = connection.createStatement();
+
+                String query2 = "select * from tickets where email ='"+recEmailVar+"'";
+                ResultSet rs2 = sta.executeQuery(query2);
+                while (rs2.next()) {
+
+
+                    getName.set(rs2.getString("movie"));
+                    movId.set(rs2.getString("id"));
+                    movDate = rs2.getDate("date");
+                    movTime = rs2.getTime("time");
+                    editData[0] = rs2.getString("seats");
+                    editData[1] = rs2.getString("medium");
+                    editData[2] = rs2.getString("amountPaid");
+                    editData[3] = rs2.getString("purDate");
+                    String[] getTicket = {String.valueOf(movId), String.valueOf(getName), String.valueOf(movDate), String.valueOf(movTime),editData[0],editData[2],editData[1],editData[3]};
+                    userTlTableModel.addRow(getTicket);
+                    c1.show(jPanelContainer,"myTickets");
+                }
+            }
+            catch (SQLException ex){
+                new RuntimeException(ex);
+            }
+
+                });
+        userTLBackBtn.addActionListener(e-> c1.show(jPanelContainer,"0"));
+
+
         adminHPUsersBtn.addActionListener(e -> {
+
+            int rowCount = adminsUEModel.getRowCount();
+            for (int g = rowCount - 1; g >= 0; g--) {
+                adminsUEModel.removeRow(g);}
+
+
 
             try {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
@@ -3410,7 +3633,7 @@ public class Framework {
                 c1.show(jPanelContainer, "editUsers");
             } catch (SQLException ex) {
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
             }
 
 
@@ -3461,7 +3684,7 @@ public class Framework {
 
                 } catch (SQLException ex) {
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
 
                 }
 
@@ -3483,7 +3706,7 @@ public class Framework {
 
                     String query2 = "DELETE FROM `users` WHERE id = '" + editData[0] + "'";
                     sta.executeUpdate(query2);
-                    JOptionPane.showMessageDialog(jPanelContainer, "Deleted Successfully", "Promt", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Deleted Successfully", "Prompt", JOptionPane.WARNING_MESSAGE);
                     isRowSelected = false;
                     int rowCount = adminsUEModel.getRowCount();
                     for (int g = rowCount - 1; g >= 0; g--) {
@@ -3511,11 +3734,11 @@ public class Framework {
 
                 } catch (SQLException ex) {
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                 }
 
             } else
-                JOptionPane.showMessageDialog(EditorFrame, "Select a row first", "Promt", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(EditorFrame, "Select a row first", "Prompt", JOptionPane.WARNING_MESSAGE);
 
 
         });
@@ -3532,8 +3755,7 @@ public class Framework {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
 
 
-                Statement sta = null;
-                sta = connection.createStatement();
+                Statement sta = connection.createStatement();
                 String query2 = "select * from tickets";
                 ResultSet rs2 = sta.executeQuery(query2);
                 while (rs2.next()) {
@@ -3555,7 +3777,7 @@ public class Framework {
                 c1.show(jPanelContainer, "ticketStatus");
             } catch (SQLException ex) {
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
             }
 
 
@@ -3592,13 +3814,13 @@ public class Framework {
                 c1.show(jPanelContainer, "adminsInfo");
             } catch (SQLException ex) {
 
-                JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
             }
 
 
         });
 
-// user settings panal buttons action
+// user settings panel buttons action
 
         userSYourNameChangeBtn.addActionListener(e -> {
             chkUpdateBtn = 1;
@@ -3612,7 +3834,7 @@ public class Framework {
 
         });
         userSYourEmailChangeBtn.addActionListener(e -> {
-            userSPromt.setText("");
+            userSPrompt.setText("");
             userSUpdateThisTF.setText("");
             chkUpdateBtn = 2;
             userSUpdateWhatLabel.setText("New Email: ");
@@ -3625,7 +3847,7 @@ public class Framework {
 
         });
         userSYourPasswordChangeBtn.addActionListener(e -> {
-            userSPromt.setText("");
+            userSPrompt.setText("");
             userSUpdateThisTF.setText("");
             userSNewPasswordTF.setText("");
             chkUpdateBtn = 3;
@@ -3642,7 +3864,7 @@ public class Framework {
         });
 
         userSBackBtn.addActionListener(e -> {
-            userSPromt.setText("");
+            userSPrompt.setText("");
             userSUpdateThisTF.setText("");
             userSNewPasswordTF.setText("");
 
@@ -3666,8 +3888,8 @@ public class Framework {
             if (chkUpdateBtn == 1) {
 
                 editData[0] = userSUpdateThisTF.getText();
-                if (getUserFuctions.nameLenChk(editData[0])) {
-                    if (!nametemp.equalsIgnoreCase(editData[0])) {
+                if (getUserFunctions.nameLenChk(editData[0])) {
+                    if (!nameTemp.equalsIgnoreCase(editData[0])) {
 
                         try {
                             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
@@ -3675,24 +3897,24 @@ public class Framework {
 
                             Statement sta = connection.createStatement();
                             String query = "update users set name='" + editData[0] + "'where id = '" + getUserId + "'";
-                            userSPromt.setText("Name Changed Successfully");
-                            nametemp = editData[0];
-                            userSYourNameLabel.setText("Your Name : " + nametemp);
-                            userMenu.setText(nametemp);
+                            userSPrompt.setText("Name Changed Successfully");
+                            nameTemp = editData[0];
+                            userSYourNameLabel.setText("Your Name : " + nameTemp);
+                            userMenu.setText(nameTemp);
 
 
                             sta.executeUpdate(query);
                         } catch (SQLException ex) {
-                            JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                         }
-                    } else userSPromt.setText("Old name cannot be your New Name");
+                    } else userSPrompt.setText("Old name cannot be your New Name");
                 } else {
-                    userSPromt.setText("Your New Name should be Grater than 4 ch");
+                    userSPrompt.setText("Your New Name should be Grater than 4 ch");
                 }
             } else if (chkUpdateBtn == 2) {
 
                 editData[0] = userSUpdateThisTF.getText();
-                if (getUserFuctions.atChk(editData[0])) {
+                if (getUserFunctions.atChk(editData[0])) {
 
                     try {
                         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
@@ -3700,25 +3922,25 @@ public class Framework {
 
                         Statement sta = connection.createStatement();
                         String query = "update users set email='" + editData[0] + "'where id = '" + getUserId + "'";
-                        userSPromt.setText("Email Changed Successfully");
+                        userSPrompt.setText("Email Changed Successfully");
 
                         recEmailVar = editData[0];
-                        userSyourEmailLabel.setText("Your Email : " + recEmailVar);
+                        userSYourEmailLabel.setText("Your Email : " + recEmailVar);
 
 
                         sta.executeUpdate(query);
                     } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(jPanelContainer, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                     }
 
-                } else userSPromt.setText("Please use correct email");
+                } else userSPrompt.setText("Please use correct email");
             } else if (chkUpdateBtn == 3) {
                 editData[0] = userSUpdateThisTF.getText();
                 editData[1] = userSNewPasswordTF.getText();
                 // checking the length
 
-                //lets get the old pass here
-                if (getUserFuctions.passLenchk(editData[1])) {
+                //let's get the old pass here
+                if (getUserFunctions.passLenchk(editData[1])) {
                     if (!editData[1].equalsIgnoreCase(editData[0])) {
                         try {
                             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
@@ -3732,18 +3954,18 @@ public class Framework {
                                 getFWFunctions.checkPassStatus(editData[1], userSPassStatus);
 
                                 sta.executeUpdate(updatePassQuery);
-                                userSPromt.setText("Password Changed Succesfully");
+                                userSPrompt.setText("Password Changed Successfully");
 
 
-                            } else userSPromt.setText("Old Password Does'nt match");
+                            } else userSPrompt.setText("Old Password Doesn't match");
                         } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-//        JOptionPane.showMessageDialog(jpcont, "Could'nt connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
+
+        JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                         }
-                    } else userSPromt.setText("New Password  cannot be the old password");
+                    } else userSPrompt.setText("New Password  cannot be the old password");
 
 
-                } else userSPromt.setText("New Password Length must be greater than 7");
+                } else userSPrompt.setText("New Password Length must be greater than 7");
             }
 
 
@@ -3752,7 +3974,7 @@ public class Framework {
         //user wallet buttons
 
         userWDepositFundsBtn.addActionListener(e -> {
-            userWDepoApproveBtn.setVisible(true);
+            userWDepositApproveBtn.setVisible(true);
             userWAmtToAddTF.setVisible(true);
             userWAmtToAddLabel.setVisible(true);
             userWAccountTitleTF.setVisible(true);
@@ -3762,12 +3984,12 @@ public class Framework {
 
         userWBackBtn.addActionListener(e -> {
             userWAccountTitleTF.setForeground(Color.BLACK);
-            userWDepoApproveBtn.setVisible(false);
+            userWDepositApproveBtn.setVisible(false);
             userWAmtToAddTF.setVisible(false);
             userWAmtToAddLabel.setVisible(false);
             userWAccountTitleTF.setVisible(false);
             userWAccountTitleLabel.setVisible(false);
-            if (paySrclogout) {
+            if (paySrcLogout) {
                 c1.show(jPanelContainer, "4");
 
 
@@ -3776,7 +3998,7 @@ public class Framework {
         });
 
 
-        userWDepoApproveBtn.addActionListener(e -> {
+        userWDepositApproveBtn.addActionListener(e -> {
 
             editData[4] = userWAmtToAddTF.getText();
             editData[1] = userWAccountTitleTF.getText();
@@ -3805,7 +4027,7 @@ public class Framework {
 
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jPanelContainer, "An error occured while Authorizing  PIB Account", "Error 669", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while Authorizing  PIB Account", "Error 669", JOptionPane.WARNING_MESSAGE);
             }
         });
 

@@ -2252,6 +2252,25 @@ public class Framework {
 
         // authorization buttons
         autFPBackBtn.addActionListener(e -> {
+            autFPPrompt.setText("");
+            autFPEmailLabel.setBounds(120, 120, 200, 30);
+            autFPEmailTF.setBounds(120, 150, 200, 30);
+
+            autFPPasswordLabel.setBounds(330, 120, 200, 30);
+            autFPPasswordPassF.setBounds(330, 150, 200, 30);
+            autFPConfPasswordTF.setVisible(false);
+            autFPConfPasswordLabel.setVisible(false);
+            autFPFirstNameLabel.setVisible(false);
+            autFPFirstNameTF.setVisible(false);
+            autFPShowRegisterBtn.setVisible(true);
+            autFPShowLoginBtn.setVisible(false);
+            autFPSubmitBtn.setVisible(true);
+            autFPRegisterSubmitBtn.setVisible(false);
+
+            autFPEmailTF.setText("");
+            autFPPasswordPassF.setText("");
+            autFPConfPasswordTF.setText("");
+            autFPFirstNameTF.setText("");
 //checking if user on authorization screen has come from while buying tickets or from Menu button
             if (payChk) {
                 c1.show(jPanelContainer, "0"); //if it comes from landing page then will return to landing page
@@ -2440,21 +2459,6 @@ public class Framework {
             if (!getUserFunctions.atChk(tempEmail)) {
                 autFPPrompt.setText("Wrong \"Email\" type");
                 autFPEmailTF.setForeground(Color.red);
-               if (!getUserFunctions.passCompare(tempPass, tempConfPass)) {
-                    autFPPrompt.setText("Wrong \"Email\" type " + " and Passwords doesn't match");
-                    autFPPasswordPassF.setForeground(Color.red);
-                    autFPConfPasswordTF.setForeground(Color.red);
-                    if (!getUserFunctions.passLenchk(tempPass)) {
-                        autFPPrompt.setText("Passwords must be greater than 8 character");
-                        autFPPasswordPassF.setForeground(Color.red);
-
-                        if (!getUserFunctions.nameLenChk(tempName)) {
-                            autFPPrompt.setText("name must be greater than 4 characters");
-                            autFPFirstNameTF.setForeground(Color.red);
-
-                        }
-                    }
-                }
             }
 
             // checking only password if email is correct
@@ -2917,6 +2921,25 @@ public class Framework {
             userWAmtToAddLabel.setVisible(false);
             userWAccountTitleTF.setVisible(false);
             userWAccountTitleLabel.setVisible(false);
+            autFPEmailLabel.setBounds(120, 120, 200, 30);
+            autFPEmailTF.setBounds(120, 150, 200, 30);
+
+            autFPPasswordLabel.setBounds(330, 120, 200, 30);
+            autFPPrompt.setText("");
+            autFPPasswordPassF.setBounds(330, 150, 200, 30);
+            autFPConfPasswordTF.setVisible(false);
+            autFPConfPasswordLabel.setVisible(false);
+            autFPFirstNameLabel.setVisible(false);
+            autFPFirstNameTF.setVisible(false);
+            autFPShowRegisterBtn.setVisible(true);
+            autFPShowLoginBtn.setVisible(false);
+            autFPSubmitBtn.setVisible(true);
+            autFPRegisterSubmitBtn.setVisible(false);
+
+            autFPEmailTF.setText("");
+            autFPPasswordPassF.setText("");
+            autFPConfPasswordTF.setText("");
+            autFPFirstNameTF.setText("");
 
 
             c1.show(jPanelContainer, "0");
@@ -2929,6 +2952,25 @@ public class Framework {
         loginM.addActionListener(e -> {
             payChk = true;
             autFPPasswordPassF.setText("");
+            autFPEmailLabel.setBounds(120, 120, 200, 30);
+            autFPEmailTF.setBounds(120, 150, 200, 30);
+
+            autFPPasswordLabel.setBounds(330, 120, 200, 30);
+            autFPPrompt.setText("");
+            autFPPasswordPassF.setBounds(330, 150, 200, 30);
+            autFPConfPasswordTF.setVisible(false);
+            autFPConfPasswordLabel.setVisible(false);
+            autFPFirstNameLabel.setVisible(false);
+            autFPFirstNameTF.setVisible(false);
+            autFPShowRegisterBtn.setVisible(true);
+            autFPShowLoginBtn.setVisible(false);
+            autFPSubmitBtn.setVisible(true);
+            autFPRegisterSubmitBtn.setVisible(false);
+
+            autFPEmailTF.setText("");
+            autFPPasswordPassF.setText("");
+            autFPConfPasswordTF.setText("");
+            autFPFirstNameTF.setText("");
 
 
             c1.show(jPanelContainer, "3");

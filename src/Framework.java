@@ -2361,6 +2361,7 @@ public class Framework {
                         //setting all  user needed menus to visible on login
 
                         myTicketsM.setVisible(true);
+                        userMenu.setForeground(Color.white);
                         settingsM.setVisible(true);
                         logOutM.setVisible(true);
                         walletM.setVisible(true);
@@ -2749,7 +2750,9 @@ public class Framework {
 
                         // if try works then the transaction has approved and user will receive a confirmation message
                         JOptionPane.showMessageDialog(jPanelContainer, "Transaction Approved");
+                        transWShowBalanceTF.setText(String.valueOf(total));
                         transWindowFrame.dispose(); // and transaction window will be closed
+
 
 
                         // if payment approved then
@@ -2810,7 +2813,7 @@ public class Framework {
         JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to database", "Error 302", JOptionPane.WARNING_MESSAGE);
                 }
             } else if (chkPibTransMethod == 2) {
-                // if user used card to deposit money into his in-app wallet then this condition will be true
+                // if user used bank account to deposit money into his in-app wallet then this condition will be true
                 int tempAmtAdd = Integer.parseInt(editData[4]); // getting the amount user wants to add in a variable
                 if (tempAmtAdd >= 100) { //condition that minimum amount to add must be 100 or greater
                     if (getPibBal >= tempAmtAdd) { //if bank balance is greater than the amount to be added
@@ -2830,6 +2833,7 @@ public class Framework {
 
 
                             JOptionPane.showMessageDialog(jPanelContainer, "Funds Added Successfully");
+                            transWShowBalanceTF.setText(String.valueOf(total));
                             bal += tempAmtAdd; // adding the added amount to user global balance variable
                             walletM.setText("Wallet (" + bal + ")");
                             userWAccountTitleTF.setForeground(Color.BLACK);
@@ -2933,6 +2937,12 @@ public class Framework {
             logChk = false;
             nameTemp = "Guest";
             userMenu.setText(nameTemp);
+            userWAccountTitleTF.setForeground(Color.BLACK);
+            userWDepositApproveBtn.setVisible(false);
+            userWAmtToAddTF.setVisible(false);
+            userWAmtToAddLabel.setVisible(false);
+            userWAccountTitleTF.setVisible(false);
+            userWAccountTitleLabel.setVisible(false);
 
 
             myTicketsM.setVisible(false);
@@ -3915,6 +3925,7 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
 
                 editData[0] = userSUpdateThisTF.getText();
                 if (getUserFunctions.atChk(editData[0])) {
+                    if(!editData[0].equalsIgnoreCase(recEmailVar)){
 
                     try {
                         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinepop", "root", "");
@@ -3922,6 +3933,7 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
 
                         Statement sta = connection.createStatement();
                         String query = "update users set email='" + editData[0] + "'where id = '" + getUserId + "'";
+                        String updateEmailToTickets = "update tickets set email='" + editData[0] + "'where email = '" + recEmailVar + "'";
                         userSPrompt.setText("Email Changed Successfully");
 
                         recEmailVar = editData[0];
@@ -3929,10 +3941,12 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
 
 
                         sta.executeUpdate(query);
+                        sta.executeUpdate(updateEmailToTickets);
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(jPanelContainer, "Couldn't connect to the Database", "Error 302", JOptionPane.WARNING_MESSAGE);
                     }
 
+                }else userSPrompt.setText("old email can not be your new email");
                 } else userSPrompt.setText("Please use correct email");
             } else if (chkUpdateBtn == 3) {
                 editData[0] = userSUpdateThisTF.getText();
@@ -4012,11 +4026,19 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
                 ResultSet rs = sta.executeQuery(query);
                 if (rs.next()) {
                     chkPibTransMethod = 2;
+                    transWPasswordPassField.setVisible(true);
+                    transWPasswordPFLabel.setVisible(true);
+                    transWShowBalanceTF.setVisible(false);
+                    transWShowBalanceLabel.setVisible(false);
+                    transWLoginBtn.setVisible(true);
+                    transWPayBtn.setVisible(false);
+                    transWPasswordPassField.setText("");
+
                     transWindowFrame.setVisible(true);
-                    userWAmtToAddTF.setVisible(false);
+
                     userWAmtToAddTF.setText("");
 
-                    userWAccountTitleTF.setVisible(false);
+
                     userWAccountTitleTF.setText("");
                     userWAccountTitleTF.setForeground(Color.BLACK);
                 } else {

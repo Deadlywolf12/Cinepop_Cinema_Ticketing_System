@@ -2252,9 +2252,11 @@ public class Framework {
 
         // authorization buttons
         autFPBackBtn.addActionListener(e -> {
-            autFPPrompt.setText("");
+
             autFPEmailLabel.setBounds(120, 120, 200, 30);
             autFPEmailTF.setBounds(120, 150, 200, 30);
+
+            autFPPrompt.setText("");
 
             autFPPasswordLabel.setBounds(330, 120, 200, 30);
             autFPPasswordPassF.setBounds(330, 150, 200, 30);
@@ -2501,14 +2503,29 @@ public class Framework {
 //
                     connection.close();
 
-                    JOptionPane.showMessageDialog(jPanelContainer, "Successful Registered", "Prompt", JOptionPane.WARNING_MESSAGE);
-                    logChk = true;
-                    // paycheck will only be false if we are going from selection page to payment and if we are registered
-                    // successfully while buy ticket we will redirect to payment page else to homepage
-                    if (!payChk) {
-                        paySrcLogout = true;
-                        c1.show(jPanelContainer, "4");
-                    } else c1.show(jPanelContainer, "0");
+                    JOptionPane.showMessageDialog(jPanelContainer, "Successful Registered , please login to continue", "Prompt", JOptionPane.WARNING_MESSAGE);
+                    payPGetAvailableBal.setText("0");
+
+                    autFPEmailLabel.setBounds(120, 120, 200, 30);
+                    autFPEmailTF.setBounds(120, 150, 200, 30);
+
+                    autFPPrompt.setText("");
+
+                    autFPPasswordLabel.setBounds(330, 120, 200, 30);
+                    autFPPasswordPassF.setBounds(330, 150, 200, 30);
+                    autFPConfPasswordTF.setVisible(false);
+                    autFPConfPasswordLabel.setVisible(false);
+                    autFPFirstNameLabel.setVisible(false);
+                    autFPFirstNameTF.setVisible(false);
+                    autFPShowRegisterBtn.setVisible(true);
+                    autFPShowLoginBtn.setVisible(false);
+                    autFPSubmitBtn.setVisible(true);
+                    autFPRegisterSubmitBtn.setVisible(false);
+
+                    autFPEmailTF.setText("");
+                    autFPPasswordPassF.setText("");
+                    autFPConfPasswordTF.setText("");
+                    autFPFirstNameTF.setText("");
 
 
                 } catch (SQLException ex) {
@@ -2703,7 +2720,12 @@ public class Framework {
 
 
                 Statement sta = connection.createStatement();
-                String query = "select balance from pib_data where password = '" + editData[0] + "'";
+                String query;
+                if(chkPibTransMethod==1) {
+                    query = "select balance from pib_data where password = '" + editData[0] + "'";
+                }
+                else{ query = "select balance from pib_data where u_Name = '" + editData[1] + "'and password = '" + editData[0] + "'";}
+
                 ResultSet rs = sta.executeQuery(query);
                 if (rs.next()) {
                     //getting the balance of the account
@@ -2726,7 +2748,8 @@ public class Framework {
 
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to database", "Error 307", JOptionPane.WARNING_MESSAGE);
+                throw new RuntimeException(ex);
+//                JOptionPane.showMessageDialog(jPanelContainer, "An error occurred while connecting to database", "Error 307", JOptionPane.WARNING_MESSAGE);
             }
 
 
@@ -3145,7 +3168,7 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
             userSUpdateThisTF.setVisible(false);
             userSNewPassLabel.setVisible(false);
             userSApplyChangeBtn.setVisible(false);
-            userSApplyChangeBtn.setVisible(false);
+
         });
 
 
@@ -3882,6 +3905,7 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
             userSNewPassLabel.setVisible(false);
             userSApplyChangeBtn.setVisible(true);
             userSApplyChangeBtn.setVisible(true);
+            userSNewPasswordTF.setVisible(false);
 
 
         });
@@ -3895,6 +3919,7 @@ adminDashBoard.addActionListener(e-> c1.show(jPanelContainer,"adminPan"));
             userSNewPassLabel.setVisible(false);
             userSApplyChangeBtn.setVisible(true);
             userSApplyChangeBtn.setVisible(true);
+            userSNewPasswordTF.setVisible(false);
 
 
         });

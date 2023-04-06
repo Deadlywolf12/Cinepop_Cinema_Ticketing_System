@@ -70,4 +70,6 @@ This project is licensed under the This project is licensed under the MIT Licens
 
 if yes then thanks xd
 
+![me](https://github.com/Deadlywolf12/Cinepop_Cinema_Ticketing_System/blob/master/git.gif)
+
 

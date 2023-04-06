@@ -272,8 +272,10 @@ public class Framework {
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         landingScreenPanel = new JPanel(null);
+        
+        //change the location of this according to your pc inorder to set the logo
 
-        logo = new JLabel(new ImageIcon("C:\\Users\\acer\\Desktop\\logo-01.png"));
+        logo = new JLabel(new ImageIcon("C:\\Users\\acer\\Desktop\\logo\\logo-01.png"));
         logo.setBounds(240, 5, 200, 200);
 
         landPageTitle = new JLabel("Welcome To Cinepop");

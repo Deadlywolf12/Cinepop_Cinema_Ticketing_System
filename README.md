@@ -1,12 +1,71 @@
-# Cinepop_Cinema_Ticketing_System
+<h1 align="center" id="title">Cinema ticket system</h1>
 
+<p align="center"><img src="https://socialify.git.ci/Deadlywolf12/Cinepop_Cinema_Ticketing_System/image?font=Rokkitt&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
+
+<p id="description">
 hey there this is my second semester  swing gui project with database connectivity
-Its a cinema ticket system application with admin panel from where admin can delete edit or add new movies directly from application
+It is a cinema ticket system that allows users to buy tickets online.
 it's not perfect but will try to make it perfect in future 
-im also thinking to launch same android application soon
-hope you liked it
+im also thinking to launch it's android application soon</p>
 
-if you want to try it then just download the jar file and database file , import cinepop.sql file to phpmyadmin then run the jar file and your good to go
-note: users balance on registration has been set to 600 by default because you wont has access to pib database which you change from cinepop database but if you want to use bank transaction init then you should import PIB database too and create your account there thanks !
+<h2>🚀 Demo</h2>
 
-for picture go to this link -> 
+[https://1drv.ms/v/s!AisbSxKRNiEQgQfZibkCndE3PfoK?e=r5z2UV](https://1drv.ms/v/s!AisbSxKRNiEQgQfZibkCndE3PfoK?e=r5z2UV)
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   User friendly UI
+*   Different payment option
+*   User Dashboard
+*   Admin panel
+*   Visual representation of seats
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone</p>
+
+```
+Clone the repository
+```
+
+<p>2. Install java</p>
+
+```
+Download java SDK and install it in your computer if not already
+```
+
+<p>3. Install Xamp</p>
+
+```
+Download xamp and install then run apache and mysql servers
+```
+
+<p>4. Import Database</p>
+
+```
+Import Cinepop database to your server
+```
+
+<p>5. import Dependency</p>
+
+```
+Download apache common lang dependency from either repository or from google and then go to project structure and import it
+```
+
+<p>6. Run</p>
+
+```
+Now enjoy !
+```
+
+<h2>🛡️ License:</h2>
+
+This project is licensed under the This project is licensed under the MIT License -
+
+<h2>💖Like my work?</h2>
+
+if yes then thanks xd

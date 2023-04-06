@@ -70,7 +70,6 @@ This project is licensed under the This project is licensed under the MIT Licens
 
 if yes then thanks xd
 
-![me](https://github.com/Deadlywolf12/Cinepop_Cinema_Ticketing_System/blob/master/Gif/git.mp4)
 
 
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzdhMDIyMzkyZTJkNWJjMTc0ZGNhZjMyYTZmMWNkMjU2MDA5ZjI1ZCZjdD1n/cN9ELyVNWHEYKyt0GT/giphy.gif" width="384" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>

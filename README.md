@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Cinema ticket system</h1>
+<h1 align="center" id="title">Cinema Ticket System</h1>
 
 <p align="center"><img src="https://socialify.git.ci/Deadlywolf12/Cinepop_Cinema_Ticketing_System/image?font=Rokkitt&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
